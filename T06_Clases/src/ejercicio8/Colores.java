@@ -36,29 +36,25 @@ public class Colores {
 	}
 
 	// Metodos
-	// solo tiene que agregar el color si NO esta repetido!!
-	// --------------- TERMINAR METODO -------------------------------
 	public void anadirColor(String c) {
-		String[] copy = Arrays.copyOf(colores, colores.length + 1);
-		copy[copy.length-1] = c;
-		colores = copy;
-		System.out.println("color añadido correctamente");							
+		int pos = 0;
+		boolean encontrado = false;
+		
+		while (pos < colores.length && !encontrado) {
+			if (colores[pos].equalsIgnoreCase(c)) {
+				encontrado = true;
+			}
+			pos ++;
+		}
+		if (!encontrado) {
+			String[] copy = Arrays.copyOf(colores, colores.length + 1);
+			copy[copy.length-1] = c;
+			colores = copy;
+			System.out.println("color añadido correctamente");										
+		} else {
+			System.out.println("ese color ya esta en la paleta");
+		}
+		
 	}
 	
-	/*
-	public void anadirColor(String c) {
-		for (int i = 0; i < colores.length; i++) {
-			if (!colores[i].equals(c)) {
-				String[] copy = Arrays.copyOf(colores, colores.length + 1);
-				copy[copy.length-1] = c;
-				colores = copy;
-				System.out.println("color añadido correctamente");							
-			} else {
-				
-				System.out.println("Ese color ya está en la paleta, inserta uno nuevo");
-			}
-		}	
-	}
-*/
-
 }
