@@ -1,11 +1,13 @@
 package ejercicio8;
 
+import java.util.Arrays;
+
 public class Principal {
 
 	public static void main(String[] args) {
 		
 		Colores c = new Colores();
-		
+		/*
 		System.out.println("Array original (colores por defecto):");
 		System.out.println(c);
 		System.out.println();
@@ -18,6 +20,14 @@ public class Principal {
 
 		System.out.println("Array después de añadir más colores");
 		System.out.println(c);
+		*/
+		// en clase: 
+		c.anadirColor("Azul");
+		c.anadirColor("Purpura");
+		c.anadirColor("Turquesa");
+		System.out.println(c);
+		String [] paletaGenerada = c.paletaAlAzar(3);
+		System.out.println(Arrays.toString(paletaGenerada));
 
 	}
 

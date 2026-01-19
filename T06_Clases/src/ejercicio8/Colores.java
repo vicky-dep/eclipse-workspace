@@ -37,6 +37,7 @@ public class Colores {
 
 	// Metodos
 	public void anadirColor(String c) {
+		// No puede haber colores repetidos
 		int pos = 0;
 		boolean encontrado = false;
 		
@@ -50,11 +51,40 @@ public class Colores {
 			String[] copy = Arrays.copyOf(colores, colores.length + 1);
 			copy[copy.length-1] = c;
 			colores = copy;
-			System.out.println("color añadido correctamente");										
+			System.out.println("Color añadido correctamente");										
 		} else {
-			System.out.println("ese color ya esta en la paleta");
+			System.out.println("Ese color ya esta en la paleta");
 		}
 		
 	}
 	
+	public String[] paletaAlAzar(int numColores) {
+		String[] resultado = new String[0];
+		int coloresAñadidos = 0;
+		if (numColores <= colores.length) {
+			while (coloresAñadidos < numColores) {
+				int pos = (int) (Math.random() * colores.length - 1);
+				String color = colores[pos];
+				// No puede haber colores repetidos
+				boolean encontrado = false;
+				int i = 0;
+				while (i < resultado.length && !encontrado) {
+					if (resultado[i].equalsIgnoreCase(color)) {
+						encontrado = true;
+					}
+					i++;
+				}
+				if (!encontrado) {
+					String[] copy = Arrays.copyOf(resultado, resultado.length + 1);
+					copy[copy.length - 1] = color;
+					resultado = copy;
+					System.out.println("Color añadido correctamente");
+					coloresAñadidos++;
+				}
+			}
+		} else {
+			System.out.println("No hay colores suficientes");
+		}
+		return resultado;
+	}
 }
