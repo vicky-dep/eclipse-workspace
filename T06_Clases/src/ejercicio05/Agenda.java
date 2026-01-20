@@ -3,6 +3,13 @@ package ejercicio05;
 import java.util.Arrays;
 
 public class Agenda {
+	/**
+	 * Crea una clase Agenda que almacena hasta 10 contactos.
+	 * Cada contacto tiene nombre y teléfono. Incluye métodos para:
+	 * Añadir un contacto.
+	 * Buscar un contacto por nombre.
+	 * Mostrar todos los contactos.
+	 */
 
 	private Contacto[] agenda = new Contacto[10]; // este array al principio tendra 10 posiciones nulas
 	// esto se usa en la otra forma del metodo añadir contacto
