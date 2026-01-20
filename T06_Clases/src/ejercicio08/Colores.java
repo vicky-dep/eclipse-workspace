@@ -1,8 +1,8 @@
-package ejercicio8;
+package ejercicio08;
 
 import java.util.Arrays;
 
-import ejercicio5.Contacto;
+import ejercicio05.Contacto;
 
 public class Colores {
 	/*
