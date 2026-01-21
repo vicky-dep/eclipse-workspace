@@ -1,6 +1,7 @@
 package ejercicio23;
 
 public class Cancion {
+	// Atributos
 	private String titulo;
 	private String autor;
 

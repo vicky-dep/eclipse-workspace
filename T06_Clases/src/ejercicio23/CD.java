@@ -1,5 +1,7 @@
 package ejercicio23;
 
+import java.util.Arrays;
+
 public class CD {
 	/**
 	 * Desarrolla una clase CD con los siguientes atributos: 
@@ -20,43 +22,93 @@ public class CD {
 	private int contador;
 
 	// Constructor
+	/*
 	public CD() {
 		super();
 		canciones = new Cancion[10]; // tamaño fijo
 		contador = 0;
+	}*/
+	public CD() {
+		super();
+		canciones = new Cancion[0];
 	}
 	
+	@Override
+	public String toString() {
+		return "CD [canciones=" + Arrays.toString(canciones) + ", contador=" + contador + "]";
+	}
+
 	// Metodos de la clase
 	public int numeroCanciones() {
 		return contador;
 	}
 
-	public Cancion dameCancion(int pos) {
+	// que haya un solo return !!
+	public Cancion dameCancion(int pos) { 
+		// suponemos que el usuario usa desde la posicion 0
+		Cancion c = null;
+		if (pos < canciones.length) {
+			c = canciones[pos];
+			System.out.println("Cancion encontrada");
+		}
+		return c;
+		/*
 		if (pos >= 0 && pos < contador) {
 			return canciones[pos];
 		} else {
 			return null;
-		}
+		}*/
 	}
 	
 	public void grabaCancion(int pos, Cancion nueva) {
+		// suponemos que el usuario usa desde la posicion 0
+		if (pos < canciones.length) {
+			canciones[pos] = nueva;
+			System.out.println("Posicion cambiada correctamente");
+		} else {
+			System.out.println("Posicion no valida");
+		}
+		/*
 		if (pos >= 0 && pos < contador) {
 			canciones[pos] = nueva;
 		} else {
 			System.out.println("Posicion incorrecta");
-		}
+		}*/
 	}
 	
-	public void agrega(Cancion c) {
+	public void agregarCancion(Cancion c) {
+		Cancion[] copy = Arrays.copyOf(canciones, canciones.length+1);
+		copy[copy.length-1] = c;
+		canciones = copy;
+		contador++;
+		System.out.println("Cancion agregada correctamente");
+		/*
 		if (contador < canciones.length) {
 			canciones[contador] = c;
 			contador++;
 		} else {
 			System.out.println("El CD esta lleno");
-		}
+		}*/
 	}
 	
-	public void elimina(int pos) {
+	public void eliminarCancion(int pos) {
+		// redimensionar con uno menos
+		Cancion[] aux = new Cancion[canciones.length-1];
+		if (pos < canciones.length) {
+			int cont = 0;
+			for (int i = 0; i < canciones.length; i++) {
+				if (pos != i) {
+					aux[cont] = canciones[i];
+					cont++;
+				}
+			}
+			canciones = aux;
+			contador--;
+			System.out.println("Cancion eliminada correctamente");
+		} else {
+			System.out.println("Posicion no valida");
+		}
+		/*
 		if (pos >= 0 && pos < contador) {
 			for (int i = pos; i < contador-1; i++) {
 				canciones[i] = canciones[i+1];
@@ -65,7 +117,7 @@ public class CD {
 			contador--;
 		} else {
 			System.out.println("Posicion incorrecta");
-		}
+		}*/
 	}
 	
 }
