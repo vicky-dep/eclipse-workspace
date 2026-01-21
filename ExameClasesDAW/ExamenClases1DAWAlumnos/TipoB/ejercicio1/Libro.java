@@ -8,10 +8,9 @@ public class Libro {
 	private String calificacion;
 	private String genero;
 	
-	// preguntar porque no lo entiendo
-	public final String CALIF_INFANTIL = "infantil";
-	public final String CALIF_ADOLESCENTE = "adolescente";
-	public final String CALIF_ADULTO = "adulto";
+	public static final String CALIF_INFANTIL = "infantil";
+	public static final String CALIF_ADOLESCENTE = "adolescente";
+	public static final String CALIF_ADULTO = "adulto";
 	
 	// Constructor
 	public Libro(String nombre, String autor, String calificacion, String genero) {
