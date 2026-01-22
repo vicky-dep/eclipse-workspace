@@ -86,6 +86,7 @@ public class Hotel {
 	}
 	
 	public void mostrarHuespedHospedados() {
+		// Primero compruebo si hay reservas
 		boolean hayReserva = false;
 		for (int i = 0; i < reservas.length; i++) {
 			if (reservas[i] != null) {
@@ -105,7 +106,7 @@ public class Hotel {
 		while (pos < reservas.length && !encontrado) {
 			if (reservas[pos] != null && reservas[pos].equalsIgnoreCase(nombre)) {
 				encontrado = true;
-				mensaje = "El huesped " + nombre + " tiene una reserva activa en la habitacion " + (pos + 1);
+				mensaje = "El huesped " + nombre + " tiene una reserva activa en la habitacion " + (pos + 1); // al empezar en 0, pongo pos+1
 			}
 			pos++;
 		}
