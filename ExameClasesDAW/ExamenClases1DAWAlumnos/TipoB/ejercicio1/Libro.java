@@ -11,8 +11,11 @@ public class Libro {
 	public static final String CALIF_INFANTIL = "infantil";
 	public static final String CALIF_ADOLESCENTE = "adolescente";
 	public static final String CALIF_ADULTO = "adulto";
-	
+		
 	// Constructor
+	public Libro() {
+		super();
+	}
 	public Libro(String nombre, String autor, String calificacion, String genero) {
 		super();
 		this.nombre = nombre;

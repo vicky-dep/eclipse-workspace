@@ -23,7 +23,7 @@ public class PrincipalB {
 		System.out.println(p);
 		
 		System.out.println();
-		System.out.println("Lista aleatoria de n libros:");
+		System.out.println("Lista aleatoria de libros:");
 		System.out.println(Arrays.toString(p.generarLibrosAleatorios(2)));
 		
 		/* descomentar luego de terminar el metodo en la clase biblioteca:
