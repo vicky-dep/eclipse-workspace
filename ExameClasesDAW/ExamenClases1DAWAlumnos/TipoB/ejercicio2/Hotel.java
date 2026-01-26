@@ -4,6 +4,8 @@ import java.util.Arrays;
 
 public class Hotel {
 
+	// private final int CAPACIDAD = 100;
+	// private String[] reservas = new String[CAPACIDAD];
 	private String[] reservas = new String[100];
 
 	// Constructor
@@ -78,7 +80,7 @@ public class Hotel {
 	public int consultarEspacio() {
 		int libres = 0;
 		for (int i = 0; i < reservas.length; i++) {
-			if (reservas[i] != null) {
+			if (reservas[i] == null) {
 				libres++;
 			}
 		}
