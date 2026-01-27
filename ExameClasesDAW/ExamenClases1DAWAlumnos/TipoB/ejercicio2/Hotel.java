@@ -3,6 +3,21 @@ package ejercicio2;
 import java.util.Arrays;
 
 public class Hotel {
+	/**
+	 * 2.Diseña una clase llamada Hotel que permita gestionar las reservas de habitaciones en un hotel. 
+	 * El sistema debe ser capaz de administrar hasta un máximo de 100 habitaciones.
+	 * Cada reserva estará identificada por el nombre del huésped. La clase debe implementar los siguientes métodos:
+	 * 1. Registrar reserva: Permite registrar una reserva en el hotel, asignando el nombre del huésped a una habitación. 
+	 * Si el nombre ya tiene una reserva activa, muestra un mensaje indicando que no se puede registrar más de una reserva 
+	 * para el mismo huésped. Si todas las habitaciones están ocupadas, muestra un mensaje indicando que el hotel está lleno.
+	 * 2. Cancelar reserva: Permite cancelar una reserva activa, dado el nombre del huésped. Si el huésped no tiene una 
+	 * reserva activa, muestra un mensaje de error.
+	 * 3. Consultar habitaciones disponibles: Devuelve la cantidad de habitaciones libres en el hotel.
+	 * 4. Mostrar huéspedes registrados: Muestra una lista con los nombres de todos los huéspedes que tienen reservas activas 
+	 * en el hotel. Si no hay reservas, muestra un mensaje indicando que el hotel está vacío. 
+	 * 5. Buscar reserva: Recibe el nombre de un huésped y verifica si tiene una reserva activa en el hotel, devolviendo un 
+	 * mensaje adecuado dependiendo de si está o no registrado.
+	 */
 
 	// private final int CAPACIDAD = 100;
 	// private String[] reservas = new String[CAPACIDAD];

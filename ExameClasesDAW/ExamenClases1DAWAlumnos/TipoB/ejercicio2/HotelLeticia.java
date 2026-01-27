@@ -56,7 +56,7 @@ public class HotelLeticia {
 			}
 
 		} else {
-			System.out.println("Hotel completo");
+			System.out.println("Hotel completo"); // intentando duplicar este codigo en la clase Zoo este mensaje se imprimia donde no correspondia... VERIFICAR!!
 		}
 	}
 

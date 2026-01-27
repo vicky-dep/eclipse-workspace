@@ -71,7 +71,7 @@ public class Equipo {
 				int i = 0;
 				boolean encontrado = false;
 				while (i < resultado.length && !encontrado) {
-					if (resultado[i].equals(empleado)) {
+					if (resultado[i].equals(empleado)) { // if (resultado[i] == empleado)
 						encontrado = true;
 					}
 					i++;
@@ -91,15 +91,15 @@ public class Equipo {
 		Empleado[] resultado = new Empleado[0];
 		Empleado[] empleadosFiltrados = new Empleado[0];
 		for (int i = 0; i < empleados.length; i++) {
-			if (empleados[i].getExperiencia().equals(experiencia)) {
+			if (empleados[i].getExperiencia().equalsIgnoreCase(experiencia)) {
 				Empleado[] copy = Arrays.copyOf(empleadosFiltrados, empleadosFiltrados.length + 1);
 				copy[copy.length - 1] = empleados[i];
 				empleadosFiltrados = copy;
 			}
 			// Una vez que tengo el array con los empleados de la categoria elegida,
 			// genero aleatoriamente el array resultado
-			resultado = obtenerEmpleadosAleatorios(cantidad, empleadosFiltrados);
 		}
+		resultado = obtenerEmpleadosAleatorios(cantidad, empleadosFiltrados);
 		return resultado;
 	}
 	

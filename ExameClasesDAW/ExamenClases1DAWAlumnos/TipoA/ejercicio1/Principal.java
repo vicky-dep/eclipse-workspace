@@ -26,8 +26,12 @@ public class Principal {
 		System.out.println(Arrays.toString(p.generarLista(4)));
 		/*System.out.println(Arrays.toString(p.generarListaPorNivel(nivel.avanzado, 3)));
 		System.out.println(Arrays.toString(p.generarListaPorNivel(nivel.intermedio, 5)));*/
+		System.out.println("Lista aleatoria de nivel avanzado:");
 		System.out.println(Arrays.toString(p.generarListaPorNivel("avanzado", 2)));
+		System.out.println("Lista aleatoria de nivel intermedio:");
 		System.out.println(Arrays.toString(p.generarListaPorNivel("intermedio", 2)));
+		System.out.println("Lista aleatoria de nivel principiante:");
+		System.out.println(Arrays.toString(p.generarListaPorNivel("principiante", 2)));
 
 	}
 
