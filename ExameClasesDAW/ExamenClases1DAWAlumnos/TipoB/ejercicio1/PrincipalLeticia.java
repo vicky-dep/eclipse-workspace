@@ -17,9 +17,10 @@ public class PrincipalLeticia {
 		p.anadirLibro(c);
 		System.out.println(p);
 		
-		System.out.println(Arrays.toString(p.generarLibrosAleatorios(4)));
-		System.out.println(Arrays.toString(p.generarListaPorTipo("adulto", 3)));
-		System.out.println(Arrays.toString(p.generarListaPorTipo("adolescente", 5)));
+		System.out.println(Arrays.toString(p.generarLibrosAleatorios(3)));
+		System.out.println(Arrays.toString(p.generarListaPorTipo("adulto", 2)));
+		System.out.println(Arrays.toString(p.generarListaPorTipo("infantil", 2)));
+		System.out.println(Arrays.toString(p.generarListaPorTipo("adolescente", 2)));
 
 	}
 }
