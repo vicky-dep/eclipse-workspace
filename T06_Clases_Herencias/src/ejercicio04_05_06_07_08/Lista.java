@@ -47,6 +47,18 @@ public class Lista {
 		copy[0] = num;
 		lista = copy;
 		System.out.println("El numero se ha insertado al principio de la lista");
+		/*
+		 * otra forma:
+		 * int[] copy = Arrays.copyOf(lista, lista.length + 1);
+		 * int cont = 1;
+		 * copy[o] = numero;
+		 * for (int insertar : lista) {
+		 * copy[cont] = lista[cont-1];
+		 * cont++;
+		 * }
+		 * lista=copy;
+		 * contador++;
+		 */
 	}
 
 	public void insertarEnPosicion(int pos, int numero) {
@@ -110,5 +122,25 @@ public class Lista {
 			pos++;
 		}
 		return indice;
+	}
+	
+	@Override // lo tenemos que sobreescribir porque existe un metodo equals en el padre
+	public boolean equals(Object obj) {
+		boolean sonIguales = false;
+		Lista l = (Lista) obj; // se puede hacer un casteo
+		if(l.getLista().length == lista.length) {
+			int cont = 0;
+			while(sonIguales && cont < lista.length) {
+				if(lista[cont] == l.getLista()[cont]) {
+					sonIguales = true;
+				} else {
+					sonIguales = false;
+				}
+				cont++;
+			}
+		} else {
+			System.out.println("Longitudes diferentes, no pueden ser iguales");
+		}
+		return sonIguales;
 	}
 }
