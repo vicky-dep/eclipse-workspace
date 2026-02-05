@@ -9,7 +9,7 @@ public class Principal {
 		e.registrarVehiculo("2567ZGF");
 		e.registrarVehiculo("2567ZGF");
 		System.out.println(e);
-		/**	int consultarEspacio = e.consultarEspacio();
+		int consultarEspacio = e.consultarEspacio();
 		System.out.println("Hay "+consultarEspacio+ " vacios");
 		e.mostrarVehiculosEstacionados();
 		String buscarVehiculo = e.buscarVehiculo("0001TRE");
@@ -17,8 +17,7 @@ public class Principal {
 		String buscarVehiculo1 = e.buscarVehiculo("2567ZGF");
 		System.out.println(buscarVehiculo1);
 		e.eliminarCoche("2567ZGF");
+		e.eliminarCoche("2570ZGF");
 		System.out.println(e);
-*/
 	}
-
 }

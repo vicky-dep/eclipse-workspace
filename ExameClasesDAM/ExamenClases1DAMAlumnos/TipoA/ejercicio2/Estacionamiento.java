@@ -72,5 +72,58 @@ public class Estacionamiento {
 		}
 	}
 	
+	public void eliminarCoche(String matricula) {
+		boolean eliminada = false;
+		int i = 0;
+		while (!eliminada && i < matriculas.length) {
+			if (matriculas[i] != null && matriculas[i].equalsIgnoreCase(matricula)) {
+				matriculas[i] = null;
+				System.out.println("Vehiculo eliminado correctamente");
+				eliminada = true;
+			}
+			i++;
+		}
+		if (!eliminada) {
+			System.out.println("Error, no se ha podido eliminar el vehiculo ya que esa matricula no esta registrada");
+		}
+	}
+	
+	public int consultarEspacio() {
+		int vacios = 0;
+		for (int i = 0; i < matriculas.length; i++) {
+			if(matriculas[i] == null) {
+				vacios++;
+			}
+		}
+		return vacios;
+	}
+	
+	public void mostrarVehiculosEstacionados() {
+		String[] estacionados = new String[0];
+		for (int i = 0; i < matriculas.length; i++) {
+			if(matriculas[i] != null) {
+				String[] copy = Arrays.copyOf(estacionados, estacionados.length+1);
+				copy[copy.length-1] = matriculas[i];
+				estacionados = copy;
+			}
+		}
+		System.out.println(Arrays.toString(estacionados));
+	}
+	public String buscarVehiculo(String matricula) {
+		String mensaje = "";
+		boolean encontrado = false;
+		int i = 0;
+		while (!encontrado && i < matriculas.length) {
+			if (matriculas[i] != null && matriculas[i].equalsIgnoreCase(matricula)) {
+				mensaje = "Ese vehiculo esta estacionado";
+				encontrado = true;
+			} 
+			i++;	
+		}
+		if (!encontrado) {
+			mensaje = "Ese vehiculo no esta estacionado";
+		}
+		return mensaje;
+	}
 	
 }

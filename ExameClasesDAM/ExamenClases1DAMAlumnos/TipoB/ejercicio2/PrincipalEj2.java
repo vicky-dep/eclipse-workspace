@@ -3,7 +3,7 @@ package ejercicio2;
 public class PrincipalEj2 {
 
 	public static void main(String[] args) {
-	/**	PlataformaPeliculas e=new PlataformaPeliculas();
+		PlataformaPeliculas e=new PlataformaPeliculas();
 		e.registrarPelicula("El 47");
 		e.registrarPelicula("It");
 		e.registrarPelicula("Love Actually");
@@ -16,8 +16,9 @@ public class PrincipalEj2 {
 		String busqueda2 = e.buscarPelicula("Love Actually");
 		System.out.println(busqueda2);
 		e.eliminarPelicula("It");
+		e.eliminarPelicula("8 apellidos vascos");
 		System.out.println(e);
-*/
+
 	}
 
 }
