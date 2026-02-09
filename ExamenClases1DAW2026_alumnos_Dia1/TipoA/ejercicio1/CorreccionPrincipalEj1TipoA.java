@@ -28,11 +28,13 @@ public class CorreccionPrincipalEj1TipoA {
 		cg.extraerReportes(10, 4);
 		System.out.println(Arrays.toString(cg.getReportesGenerados()));
 		
-		char letraBusqueda = 'a'; String[] encontradas = cg.buscarPalabras(letraBusqueda);
+		char letraBusqueda = 'a'; 
+		String[] encontradas = cg.buscarPalabras(letraBusqueda);
 		System.out.println("Palabras que contienen '" + letraBusqueda + "'");
 		System.out.println(Arrays.toString(encontradas));
 		
-		String[] ordenadas = cg.clasificarReportes(); System.out.println("Palabras Ordenadas ");
+		String[] ordenadas = cg.clasificarReportes(); 
+		System.out.println("Palabras Ordenadas ");
 		System.out.println(Arrays.toString(ordenadas));
 	}
 
