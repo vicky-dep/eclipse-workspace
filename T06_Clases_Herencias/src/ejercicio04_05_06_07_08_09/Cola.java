@@ -1,4 +1,4 @@
-package ejercicio04_05_06_07_08;
+package ejercicio04_05_06_07_08_09;
 
 public class Cola extends Lista {
 	// Cola: los elementos se insertan siempre al final y se van a sacar de esa cola por el elemento 0
