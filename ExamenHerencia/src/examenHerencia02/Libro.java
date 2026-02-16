@@ -60,5 +60,6 @@ public abstract class Libro {
 	}
 	
 	// Metodo abstracto, obliga a las hijas a implementarlo
-	public abstract double calcularMulta(int diasRetraso, boolean esSocioPremium);
+	// No se puede marcar un metodo como abstracto, si su clase no lo es
+	public abstract double calcularMulta(int diasRetraso, boolean esSocioPremium); // BigDecimal hace mejor redondeo que double (muy util para moneda) 
 }

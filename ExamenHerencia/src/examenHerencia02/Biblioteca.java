@@ -21,8 +21,8 @@ public class Biblioteca {
 		super();
 		this.capacidad = capacidad;
 		this.libros = new Libro[0];
-		agregarLibro(new Enciclopedia("ISBN004", "Enciclopedia Universal Ilustrada", "Varios autores", 5000, false, 10));
-		agregarLibro(new Novela("ISBN001", "Don Quijote de la Mancha", "Miguel de Cervantes", 863, false, "ficcion"));
+		// agregarLibro(new Enciclopedia("ISBN004", "Enciclopedia Universal Ilustrada", "Varios autores", 5000, false, 10));
+		/// agregarLibro(new Novela("ISBN001", "Don Quijote de la Mancha", "Miguel de Cervantes", 863, false, "ficcion"));
 	}
 	
 	// Getters & Setters
@@ -66,4 +66,34 @@ public class Biblioteca {
         }
     }
 	
+	private Libro buscarLibro(String isbn) {
+		Libro libro = null;
+		for (int i = 0; i < libros.length; i++) {
+			if (libros[i].getCodigoISBN().equalsIgnoreCase(isbn)) {
+				libro = libros[i];
+				break;
+			}
+		}
+		return libro;
+	}
+	
+	public void prestarLibro(String isbn) {
+		Libro libroEncontrado = buscarLibro(isbn);
+		if(libroEncontrado != null && !libroEncontrado.isEnPrestamo()) {
+			libroEncontrado.setEnPrestamo(true);
+		}
+	}
+	
+	public void devolverLibro(String isbn, int diasRetraso, boolean esSocioPremium) {
+		
+	}
+	
+	public static void main(String[] args) {
+		Biblioteca biblioteca = new Biblioteca();
+		try {
+			Libro novela = new Novela("700-123434-135476", "Novela1", "Autor1", 100, false, "No vale");
+		} catch (NovelaGeneroException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 }

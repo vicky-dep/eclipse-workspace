@@ -5,20 +5,10 @@ public class Enciclopedia extends Libro {
 	private int numVolumenes;
 
 	// Constructor
-	public Enciclopedia(int numVolumenes) {
-		super();
-		this.numVolumenes = numVolumenes;
-	}
-	public Enciclopedia() {
-		super();
-	}
-	public Enciclopedia(String codigoISBN, String titulo, String autor, int numPaginas, boolean enPrestamo) {
-		super(codigoISBN, titulo, autor, numPaginas, enPrestamo);
-	}
 	public Enciclopedia(String codigoISBN, String titulo, String autor, int numPaginas, boolean enPrestamo, int numVolumenes) {
 		super(codigoISBN, titulo, autor, numPaginas, enPrestamo);
 		this.numVolumenes = numVolumenes;
-	}
+	}	
 	
 	// Getters & Setters
 	public int getNumVolumenes() {
@@ -41,7 +31,7 @@ public class Enciclopedia extends Libro {
 	@Override
 	public double calcularMulta(int diasRetraso, boolean esSocioPremium) {
 		double multa = 0;
-		if (numVolumenes <= 5) {
+		if (numVolumenes <= 5) { // haria falta this.numVolumenes ??
 			multa = diasRetraso * 1.0;
 		} else {
 			multa = diasRetraso * 1.5;
@@ -50,6 +40,10 @@ public class Enciclopedia extends Libro {
 			multa *= 0.5;
 		}
 		return multa;
+		
+		/*
+		 * return (esSocioPremium ? 0.5 : 1) * this.numVolumenes <= 5 ? diasRetraso * 1 : diasRetraso * 1.5;
+		 */
 	}	
 	
 }

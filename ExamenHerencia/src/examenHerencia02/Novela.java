@@ -5,19 +5,22 @@ public class Novela extends Libro {
 	private String genero; // ficcion, historica o misterio
 
 	//Constructor
-	public Novela() {
-		super();
-	}
-	public Novela(String codigoISBN, String titulo, String autor, int numPaginas, boolean enPrestamo) {
+	public Novela(String codigoISBN, String titulo, String autor, int numPaginas, boolean enPrestamo, String genero) 
+				  throws NovelaGeneroException {
+		
 		super(codigoISBN, titulo, autor, numPaginas, enPrestamo);
-	}
-	public Novela(String codigoISBN, String titulo, String autor, int numPaginas, boolean enPrestamo, String genero) {
-		super(codigoISBN, titulo, autor, numPaginas, enPrestamo);
-		this.genero = genero;
-	}
-	public Novela(String genero) {
-		super();
-		this.genero = genero;
+		
+		// esto se haria en excepciones:
+		if ("Ficcion".equalsIgnoreCase(genero) || 
+			"Historica".equalsIgnoreCase(genero) ||
+			"Misterio".equalsIgnoreCase(genero)) {
+			this.genero = genero;
+		} else { 
+			String mensaje = "El genero: " + genero + " no es un genero valido. Usa: ficcion, historica o misterio.";
+			throw new NovelaGeneroException(mensaje);
+		}
+		
+		// this.genero = genero;
 	}
 	
 	// Getters & Setters
@@ -42,7 +45,7 @@ public class Novela extends Libro {
 	@Override
 	public double calcularMulta(int diasRetraso, boolean esSocioPremium) {
 		double multa = 0;
-		if(genero.equalsIgnoreCase("ficcion")) {
+		if(genero.equalsIgnoreCase("ficcion")) { // this.genero ?? 
 			multa = diasRetraso * 0.5;
 		} else if (genero.equalsIgnoreCase("historica")) {
 			multa = diasRetraso * 0.7;
@@ -53,6 +56,14 @@ public class Novela extends Libro {
 			multa *= 0.5;
 		}
 		return multa;
+		
+		/*
+		 * return 
+		 *     ("Ficcion".equals(genero) ? diasRetraso * 0.5 :
+		 *     "Historica".equals(genero) ? diasRetraso * 0.7 :
+		 *     diasRetraso * 0.6) * 
+		 *     (esSocioPremium ? 0.5 : 1); 
+		 */
 	}
 
 }
