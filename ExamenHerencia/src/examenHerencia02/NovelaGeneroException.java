@@ -1,4 +1,4 @@
-package examenHerencia02;
+/*package examenHerencia02;
 
 public class NovelaGeneroException extends Exception {
 
@@ -27,4 +27,4 @@ public class NovelaGeneroException extends Exception {
 		super(cause);
 	}
 	
-}
+}*/

@@ -9,16 +9,13 @@ public abstract class Libro {
 	private boolean enPrestamo;
 
 	// Constructor
-	public Libro() {
-		super();
-	}
-	public Libro(String codigoISBN, String titulo, String autor, int numPaginas, boolean enPrestamo) {
+	public Libro(String codigoISBN, String titulo, String autor, int numPaginas) {
 		super();
 		this.codigoISBN = codigoISBN;
 		this.titulo = titulo;
 		this.autor = autor;
 		this.numPaginas = numPaginas;
-		this.enPrestamo = enPrestamo;
+		this.enPrestamo = false; //this.enPrestamo = enPrestamo;
 	}
 	
 	// Getters & Setters
@@ -51,6 +48,13 @@ public abstract class Libro {
 	}
 	public void setEnPrestamo(boolean enPrestamo) {
 		this.enPrestamo = enPrestamo;
+	}
+	
+	public void prestar() {
+		enPrestamo = true;
+	}
+	public void devolver()   {	
+		enPrestamo = false;
 	}
 	
 	@Override

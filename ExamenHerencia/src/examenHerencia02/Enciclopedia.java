@@ -5,8 +5,8 @@ public class Enciclopedia extends Libro {
 	private int numVolumenes;
 
 	// Constructor
-	public Enciclopedia(String codigoISBN, String titulo, String autor, int numPaginas, boolean enPrestamo, int numVolumenes) {
-		super(codigoISBN, titulo, autor, numPaginas, enPrestamo);
+	public Enciclopedia(String codigoISBN, String titulo, String autor, int numPaginas, int numVolumenes) {
+		super(codigoISBN, titulo, autor, numPaginas);
 		this.numVolumenes = numVolumenes;
 	}	
 	
@@ -44,6 +44,14 @@ public class Enciclopedia extends Libro {
 		/*
 		 * return (esSocioPremium ? 0.5 : 1) * this.numVolumenes <= 5 ? diasRetraso * 1 : diasRetraso * 1.5;
 		 */
-	}	
+	}
+	/*
+	 * Otra forma:
+	 * 	@Override
+	public double calcularMulta(int diasRetraso, boolean esSocioPremium) {
+		double multaBase = (numVolumenes <= 5) ? diasRetraso * 1.0 : diasRetraso * 1.5;
+		return esSocioPremium ? multaBase / 2 : multaBase;
+	}
+	 */
 	
 }
