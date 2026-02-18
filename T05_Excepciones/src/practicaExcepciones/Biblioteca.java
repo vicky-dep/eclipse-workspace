@@ -23,10 +23,29 @@ public class Biblioteca {
 			int digito = num % 10; // saco el último dígito
 			volteado = volteado * 10 + digito; // lo agrego al nuevo número
 			num = num / 10; // elimino el último dígito
+			// throw new BibliotecaException();
 		}
 		return volteado;
 	}
 	
-	// 3. digitoN: Devuelve el dígito que está en la posición n de un número entero. Se empieza contando por el 0 y de izquierda a derecha.
+	// 3. digitoN: Devuelve el dígito que está en la posición n de un número entero. 
+	// Se empieza contando por el 0 y de izquierda a derecha.
+	public int digitoN(int num, int pos) {
+	    // num = Math.abs(num); // por si es negativo
+	    String numStr = String.valueOf(num);
+	    int resultado = -1; // valor por defecto
+	    if (pos >= 0 && pos < numStr.length()) {
+	        resultado = Character.getNumericValue(numStr.charAt(pos));
+	    }
+	    return resultado;
+	}
 	
+	// 4. quitaPorDetras: Le quita a un número n dígitos por detrás (por la derecha).
+	public int quitaPorDetras(int numero, int n) {
+	    // numero = Math.abs(numero); // por si es negativo
+	    for (int i = 0; i < n; i++) {
+	        numero /= 10;
+	    }
+	    return numero;
+	}
 }
