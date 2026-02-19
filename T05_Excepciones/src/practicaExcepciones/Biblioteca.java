@@ -39,7 +39,7 @@ public class Biblioteca {
 	}
 	
 	// 4. quitaPorDetras: Le quita a un número n dígitos por detrás (por la derecha).
-	public int quitaPorDetras(int numero, int n) throws BibliotecaException {
+	public int quitaPorDetras(int numero, int n) throws IllegalArgumentException {
 		// contar digitos 
 		int copia = numero;
 		int digitos = 0;
@@ -56,14 +56,16 @@ public class Biblioteca {
 			throw new IllegalArgumentException();
 		}
 		int resultado = numero;
+		// inicialmente el método era súper corto ya que solo quitaba dígitos, 
+		// al hacer el método siguiente, elegí modificar este para que lance la excepción anterior
 	    for (int i = 0; i < n; i++) {
-	        numero /= 10;
+	        resultado /= 10;
 	    }
 	    return resultado;
 	}
 	
 	// 5. quitaPorDelante: Le quita a un número n dígitos por delante (por la izquierda).
-	public int quitaPorDelante(int numero, int n) throws BibliotecaException {
+	public int quitaPorDelante(int numero, int n) throws IllegalArgumentException {
 		// contar digitos 
 		int copia = numero;
 		int digitos = 0;
