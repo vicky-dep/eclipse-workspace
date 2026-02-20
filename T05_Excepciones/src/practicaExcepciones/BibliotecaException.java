@@ -14,6 +14,8 @@ public class BibliotecaException extends Exception {
 	 */
 
 	public static final String NO_PRIMO = "El número no es primo";
+    public static final String ARRAY_VACIO = "El array está vacio";
+    public static final String TAMANO_NEGATIVO = "El tamaño del array no puede ser negativo";
 
 	public BibliotecaException() {
 		super();
