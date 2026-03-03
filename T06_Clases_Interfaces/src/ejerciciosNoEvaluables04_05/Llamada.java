@@ -26,6 +26,10 @@ public class Llamada implements LlamadaInterfaz, Comparable<Llamada> {
 	private String[] zonas = {"Zona 1", "Zona 2", "Zona 3", "Zona 4", "Zona 5"}; // 5 zonas con distintas tarifas
 	private float[] tarifas = {10, 2.5f, 3, 1.2f, 5};
 	
+	public Llamada() {
+		super();
+	}
+	
 	public Llamada(int telefonoCliente, int telefonoInterlocutor, boolean esSaliente, int fechaHoraInicio,
 			int fechaHoraFin, String[] zonas, float[] tarifas) {
 		super();
@@ -38,46 +42,46 @@ public class Llamada implements LlamadaInterfaz, Comparable<Llamada> {
 		this.tarifas = tarifas;
 	}
 
+	public Llamada(int telefonoCliente, int telefonoInterlocutor, boolean esSaliente, int fechaHoraInicio,
+			int fechaHoraFin) {
+		super();
+		this.telefonoCliente = telefonoCliente;
+		this.telefonoInterlocutor = telefonoInterlocutor;
+		this.esSaliente = esSaliente;
+		this.fechaHoraInicio = fechaHoraInicio;
+		this.fechaHoraFin = fechaHoraFin;
+	}
+	
 	public int getTelefonoCliente() {
 		return telefonoCliente;
 	}
-
 	public void setTelefonoCliente(int telefonoCliente) {
 		this.telefonoCliente = telefonoCliente;
 	}
-
 	public int getTelefonoInterlocutor() {
 		return telefonoInterlocutor;
 	}
-
 	public void setTelefonoInterlocutor(int telefonoInterlocutor) {
 		this.telefonoInterlocutor = telefonoInterlocutor;
 	}
-
 	public boolean isEsSaliente() {
 		return esSaliente;
 	}
-
 	public void setEsSaliente(boolean esSaliente) {
 		this.esSaliente = esSaliente;
 	}
-
 	public int getFechaHoraInicio() {
 		return fechaHoraInicio;
 	}
-
 	public void setFechaHoraInicio(int fechaHoraInicio) {
 		this.fechaHoraInicio = fechaHoraInicio;
 	}
-
 	public int getFechaHoraFin() {
 		return fechaHoraFin;
 	}
-
 	public void setFechaHoraFin(int fechaHoraFin) {
 		this.fechaHoraFin = fechaHoraFin;
 	}
-
 	public String[] getZonas() {
 		return zonas;
 	}
@@ -85,24 +89,17 @@ public class Llamada implements LlamadaInterfaz, Comparable<Llamada> {
 	public void setZonas(String[] zonas) {
 		this.zonas = zonas;
 	}
-
 	public float[] getTarifas() {
 		return tarifas;
 	}
-
 	public void setTarifas(float[] tarifas) {
 		this.tarifas = tarifas;
 	}
-
 	@Override
 	public String toString() {
 		return "Llamada [telefonoCliente=" + telefonoCliente + ", telefonoInterlocutor=" + telefonoInterlocutor
 				+ ", esSaliente=" + esSaliente + ", fechaHoraInicio=" + fechaHoraInicio + ", fechaHoraFin="
 				+ fechaHoraFin + ", zonas=" + Arrays.toString(zonas) + ", tarifas=" + Arrays.toString(tarifas) + "]";
-	}
-
-	public Llamada() {
-		super();
 	}
 
 	@Override
@@ -130,14 +127,14 @@ public class Llamada implements LlamadaInterfaz, Comparable<Llamada> {
 
 	@Override
 	public int compareTo(Llamada arg0) {
+		// negativo si el primer argumento < ... 0 si son iguales o positivo si argumento > ...
+		
+		// si es con numeros la comparacion, se utiliza la resta:
 		if(telefonoCliente - arg0.telefonoCliente == 0) {
 			// Comparamos por fecha de inicio
 			return fechaHoraInicio - arg0.fechaHoraInicio;
 		}
 		return telefonoCliente - arg0.telefonoCliente;
 	}
-	
-	
-	
 	
 }
