@@ -24,8 +24,8 @@ public class Revista extends Publicacion {
 
 	@Override
 	public String toString() {
-		super.toString();
-		return "Revista [numero=" + numero + "]";
+		return "Revista [numero=" + numero + ", getCodigo()=" + getCodigo()
+						 + ", getTitulo()=" + getTitulo() + ", getAnioPublicacion()=" + getAnioPublicacion() + "]";
 	}
 
 	@Override

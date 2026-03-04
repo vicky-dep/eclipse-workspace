@@ -27,12 +27,13 @@ public class Libro extends Publicacion implements PrestableInterfaz {
 		this.estaPrestado = estaPrestado;
 	}
 	*/
+
 	@Override
 	public String toString() {
-		super.toString();
-		return "Libro [estaPrestado=" + estaPrestado + "]";
+		return "Libro [getCodigo()=" + getCodigo() + ", getTitulo()=" + getTitulo() + ", getAnioPublicacion()=" + getAnioPublicacion()
+		+ ", estaPrestado()=" + estaPrestado() + "]";
 	}
-
+	
 	@Override
 	public String getCodigo() {
 		return super.getCodigo();
