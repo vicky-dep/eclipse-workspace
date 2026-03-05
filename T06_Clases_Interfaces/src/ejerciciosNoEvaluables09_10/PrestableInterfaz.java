@@ -6,8 +6,16 @@ public interface PrestableInterfaz {
 	 * con los métodos prestar(), devolver() y prestado. La clase Libro implementa esta interfaz
 	 */
 	
+	//prestar(), devolver() y prestado
+	void prestar();
+	void devolver();
+	void prestado();
+	
+	/*
 	void prestar();
 	void devolver();
 	boolean estaPrestado();
-
+	// la profe pone:
+	// void prestado();
+	*/
 }

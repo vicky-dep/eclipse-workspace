@@ -10,6 +10,33 @@ public class Revista extends Publicacion {
 	
 	private int numero;
 
+	public Revista(String codigo, String titulo, int anioPublicacion) {
+		super(codigo, titulo, anioPublicacion);
+		this.numero = 1;
+	}
+
+	public Revista(String codigo, String titulo, int anioPublicacion, int numero) {
+		super(codigo, titulo, anioPublicacion);
+		this.numero = numero;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	@Override
+	public String toString() {
+		// Para que muestre los datos del padre, llamamos al toString del padre
+		return super.toString() + "Revista [numero=" + numero + "]";
+	}
+	
+	/*
+	private int numero;
+
 	public Revista(String codigo, String titulo, int anioPublicacion, int numero) {
 		super(codigo, titulo, anioPublicacion);
 		this.numero = numero;
@@ -24,8 +51,11 @@ public class Revista extends Publicacion {
 
 	@Override
 	public String toString() {
-		return "Revista [numero=" + numero + ", getCodigo()=" + getCodigo()
-						 + ", getTitulo()=" + getTitulo() + ", getAnioPublicacion()=" + getAnioPublicacion() + "]";
+		// Para que muestre los datos del padre ...
+		return super.toString() + "Revista [numero=" + numero + "]";
+				
+		// return "Revista [numero=" + numero + ", getCodigo()=" + getCodigo()
+						 // + ", getTitulo()=" + getTitulo() + ", getAnioPublicacion()=" + getAnioPublicacion() + "]";
 	}
 
 	@Override
@@ -37,5 +67,5 @@ public class Revista extends Publicacion {
 	public int getAnioPublicacion() {
 		return super.getAnioPublicacion();
 	}
-	
+	*/
 }
