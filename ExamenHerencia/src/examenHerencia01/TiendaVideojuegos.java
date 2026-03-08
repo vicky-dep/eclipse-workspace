@@ -171,7 +171,6 @@ public class TiendaVideojuegos {
 			if (videojuego instanceof Digital) {
 				descargas += ((Digital) videojuego).getNumDescargas();
 			}
-
 		}
 		return descargas;
 	}

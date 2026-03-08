@@ -57,7 +57,9 @@ public class Digital extends Libro {
 
 	@Override
 	public String toString() {
-		return "Digital [formato=" + formato + ", tamanioMB=" + tamanioMB + ", numDescargas=" + numDescargas + "]";
+		return "Digital [formato=" + formato + ", tamanioMB=" + tamanioMB + ", numDescargas=" + numDescargas
+				+ ", getTitulo()=" + getTitulo() + ", getAutor()=" + getAutor() + ", getAnioPublicacion()="
+				+ getAnioPublicacion() + ", getIsbn()=" + getIsbn() + "]";
 	}
 
 	@Override

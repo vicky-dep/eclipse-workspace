@@ -68,7 +68,8 @@ public class Fisico extends Libro {
 	@Override
 	public String toString() {
 		return "Fisico [numPaginas=" + numPaginas + ", ubicacionBiblioteca=" + ubicacionBiblioteca + ", prestado="
-				+ prestado + ", persona=" + persona + "]";
+				+ prestado + ", persona=" + persona + ", getTitulo()=" + getTitulo() + ", getAutor()=" + getAutor()
+				+ ", getAnioPublicacion()=" + getAnioPublicacion() + ", getIsbn()=" + getIsbn() + "]";
 	}
 
 	@Override
