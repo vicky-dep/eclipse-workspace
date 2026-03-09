@@ -11,8 +11,8 @@ public class Camion extends Vehiculo {
 		super();
 		this.numeroEjes = numeroEjes;
 	}
-	public Camion(String matricula, double capacidadCarga, double nivelCombustile, int numeroEjes) {
-		super(matricula, capacidadCarga, nivelCombustile);
+	public Camion(String matricula, double capacidadCarga, double nivelCombustible, int numeroEjes) {
+		super(matricula, capacidadCarga, nivelCombustible);
 		this.numeroEjes = numeroEjes;
 	}
 
@@ -30,7 +30,7 @@ public class Camion extends Vehiculo {
 	
 	@Override
 	public void realizarViaje(double distancia) {
-		double combustibleDespuesViaje = getNivelCombustile() - 0.3 * distancia;
+		double combustibleDespuesViaje = getNivelCombustible() - 0.3 * distancia;
 		if(combustibleDespuesViaje > 0) {
 			setNivelCombustile(combustibleDespuesViaje);			
 			System.out.println("Se ha disminuido el nivel de combustible.");

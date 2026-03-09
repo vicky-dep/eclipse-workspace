@@ -4,16 +4,16 @@ public abstract class Vehiculo {
 
 	private String matricula;
 	private double capacidadCarga;
-	private double nivelCombustile;
+	private double nivelCombustible;
 
 	public Vehiculo() {
 		super();
 	}
-	public Vehiculo(String matricula, double capacidadCarga, double nivelCombustile) {
+	public Vehiculo(String matricula, double capacidadCarga, double nivelCombustible) {
 		super();
 		this.matricula = matricula;
 		this.capacidadCarga = capacidadCarga;
-		this.nivelCombustile = nivelCombustile;
+		this.nivelCombustible = nivelCombustible;
 	}
 	
 	public String getMatricula() {
@@ -28,23 +28,23 @@ public abstract class Vehiculo {
 	public void setCapacidadCarga(double capacidadCarga) {
 		this.capacidadCarga = capacidadCarga;
 	}
-	public double getNivelCombustile() {
-		return nivelCombustile;
+	public double getNivelCombustible() {
+		return nivelCombustible;
 	}
-	public void setNivelCombustile(double nivelCombustile) {
-		this.nivelCombustile = nivelCombustile;
+	public void setNivelCombustile(double nivelCombustible) {
+		this.nivelCombustible = nivelCombustible;
 	}
 	
 	@Override
 	public String toString() {
-		return "Vehiculo [matricula=" + matricula + ", capacidadCarga=" + capacidadCarga + ", nivelCombustile="
-				+ nivelCombustile + "]";
+		return "Vehiculo [matricula=" + matricula + ", capacidadCarga=" + capacidadCarga + ", nivelCombustible="
+				+ nivelCombustible + "]";
 	}
 	
 	public abstract void realizarViaje(double distancia);
 	
 	public void repostar(double litros) {
-		
+		nivelCombustible += litros;
 	}
 	
 	public void validarCarga(double cargaActual) {

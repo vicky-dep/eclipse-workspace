@@ -11,8 +11,8 @@ public class Furgoneta extends Vehiculo {
 		super();
 		this.isRefrigerada = isRefrigerada;
 	}
-	public Furgoneta(String matricula, double capacidadCarga, double nivelCombustile, boolean isRefrigerada) {
-		super(matricula, capacidadCarga, nivelCombustile);
+	public Furgoneta(String matricula, double capacidadCarga, double nivelCombustible, boolean isRefrigerada) {
+		super(matricula, capacidadCarga, nivelCombustible);
 		this.isRefrigerada = isRefrigerada;
 	}
 
@@ -30,7 +30,7 @@ public class Furgoneta extends Vehiculo {
 	
 	@Override
 	public void realizarViaje(double distancia) {
-		double combustibleDespuesViaje = getNivelCombustile() - 0.1 * distancia;
+		double combustibleDespuesViaje = getNivelCombustible() - 0.1 * distancia;
 		if(isRefrigerada) {
 			combustibleDespuesViaje *= 0.9;
 		}
