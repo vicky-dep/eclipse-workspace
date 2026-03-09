@@ -30,14 +30,12 @@ public class Email extends Notificacion {
 	
 	@Override
 	public String toString() {
-		return "Email [direccionCorreo=" + direccionCorreo + ", getRemitente()=" + getRemitente() + ", getMensaje()="
-				+ getMensaje() + "]";
+		return  "Email [direccionCorreo=" + direccionCorreo + "]" + super.toString();
 	}
 	
 	@Override
 	public void enviar() {
 		System.out.println("Enviando Email a " + direccionCorreo + ": " + getMensaje());
-		
 	}
 
 }

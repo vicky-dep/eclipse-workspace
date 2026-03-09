@@ -31,7 +31,7 @@ public class Coche extends Vehiculo {
 	
 	@Override
 	public String toString() {
-		return "Coche [numPuertas=" + numPuertas + "]";
+		return super.toString() + "Coche [numPuertas=" + numPuertas + "]";
 	}
 	
 	@Override

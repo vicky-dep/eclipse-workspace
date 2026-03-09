@@ -13,26 +13,60 @@ public class Principal {
         Gato g2 = new Gato("Nina", "Siames", 5, 30, 987, true, "corto");
         
         // Ingresar mascotas
-        g.ingresarMascota(p1);
-        g.ingresarMascota(p2);
-        g.ingresarMascota(g1);
-        g.ingresarMascota(g2);
+        try {
+        	g.ingresarMascota(p1);		
+		} catch (GuarderiaException e) {
+			e.printStackTrace();
+		}
+        
+        try {
+        	g.ingresarMascota(p2);			
+		} catch (GuarderiaException e) {
+			e.printStackTrace();
+		}
+        
+        try {
+        	g.ingresarMascota(g1);			
+		} catch (GuarderiaException e) {
+			e.printStackTrace();
+		}
+        
+        try {
+        	g.ingresarMascota(g2);			
+		} catch (GuarderiaException e) {
+			e.printStackTrace();
+		}
 
         // Intentar repetir
-        g.ingresarMascota(p1);
+        try {
+        	g.ingresarMascota(p1);			
+		} catch (GuarderiaException e) {
+			e.printStackTrace();
+		}
         
         // Intentar agregar mas cantidad de la capacidad
-        Perro p3 = new Perro("Coco", "Jack Russel", 1, 100, 1234, true, "mediano");
-        g.ingresarMascota(p3);
+        try {
+        	Perro p3 = new Perro("Coco", "Jack Russel", 1, 100, 1234, true, "mediano");
+        	g.ingresarMascota(p3);			
+		} catch (GuarderiaException e) {
+			e.printStackTrace();
+		}
         
         System.out.println();
         
         // Retirar una mascota
-        g.retirarMascota("Luna");
-
-        System.out.println();
-
+        try {
+        	g.retirarMascota("Luna");			
+		} catch (GuarderiaException e) {
+			e.printStackTrace();
+		}
+        
         // Intentar retirar una que no existe
-        g.retirarMascota("Rocky");
+        try {
+        	g.retirarMascota("Rocky");			
+		} catch (GuarderiaException e) {
+			e.printStackTrace();
+		}
+
 	}
 }

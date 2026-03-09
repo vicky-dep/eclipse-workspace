@@ -11,7 +11,7 @@ public class Concesionario {
 	 * Método listarTodo(): Recorre el array y llama al método mostrarDetalles() de cada objeto que no sea nulo.
 	 */
 
-	private Vehiculo[] lista = new Vehiculo[5];
+	private Vehiculo[] lista = new Vehiculo[0]; // Leticia lo creo a 0 para practicar redimension...
 
 	public Concesionario() {
 		super();
@@ -34,6 +34,16 @@ public class Concesionario {
 	}
 
 	public void anadir(Vehiculo v) {
+		if (lista.length < 5) {
+			Vehiculo[] aux = Arrays.copyOf(lista, lista.length+1);
+			aux[aux.length-1] = v;
+			lista = aux;
+			System.out.println("Vehiculo añadido correctamente.");
+		} else {
+			System.out.println("No se pueden añadir mas vehiculos.");
+		}
+		
+		/* mi version:
 		boolean anadido = false;
 		int pos = 0;
 		while (!anadido && pos < lista.length) {
@@ -46,10 +56,27 @@ public class Concesionario {
 		}
 		if(!anadido) {
 			System.out.println("No hay espacio en el concesionario.");			
-		}
+		}*/
 	}
 	
 	public void eliminar(int indice) {
+		if (indice >= 0 && indice < lista.length) {
+			Vehiculo[] aux = new Vehiculo[lista.length-1];
+			int cont = 0;
+			for (int i = 0; i < lista.length; i++) {
+				if (i != indice) {
+					Vehiculo vehiculo = lista[i];
+					aux[cont] = vehiculo;
+					cont++;
+				}
+			}
+			lista = aux;
+			System.out.println("Eliminado correctamente.");
+		} else {
+			System.out.println("Indice no valido.");
+		}
+		
+		/* mi version:
 		if(indice < 0 || indice >= lista.length) {
 			System.out.println("No es posible eliminar, el indice se encuentra fuera de rango.");
 		} else if (lista[indice] == null) {
@@ -57,10 +84,18 @@ public class Concesionario {
 		} else {
 			lista[indice] = null;
 			System.out.println("Vehiculo eliminado correctamente.");
-		}
+		}*/
 	}
 	
 	public void listarTodo() {
+		for (int i = 0; i < lista.length; i++) {
+			Vehiculo vehiculo = lista[i];
+			if(vehiculo != null) {
+				vehiculo.mostrarDetalles();
+			}
+		}
+		
+		/* mi version:
 		boolean hayVehiculos = false;
 		for (int i = 0; i < lista.length; i++) {
 			if(lista[i] != null) {
@@ -71,7 +106,7 @@ public class Concesionario {
 		}
 		if(!hayVehiculos) {
 			System.out.println("No hay vehiculos en el concesionario.");
-		}
+		}*/
 	}
 	
 }

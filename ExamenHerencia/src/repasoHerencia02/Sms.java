@@ -30,8 +30,7 @@ public class Sms extends Notificacion {
 	
 	@Override
 	public String toString() {
-		return "Sms [numeroTelefono=" + numeroTelefono + ", getRemitente()=" + getRemitente() + ", getMensaje()="
-				+ getMensaje() + "]";
+		return "Sms [numeroTelefono=" + numeroTelefono + "]" + super.toString();
 	}
 	
 	@Override

@@ -50,7 +50,7 @@ public class Guarderia {
 		return "Guarderia [mascotas=" + Arrays.toString(mascotas) + ", capacidad=" + capacidad + "]";
 	}
 
-	public void ingresarMascota(Mascota m) {
+	public void ingresarMascota(Mascota m) throws GuarderiaException {
 		boolean repetida = false;
 		int cont = 0;
 		while (!repetida && cont < mascotas.length) {
@@ -60,9 +60,13 @@ public class Guarderia {
 			cont++;
 		}
 		if (repetida) {
-			System.out.println("La mascota ya esta en la guarderia.");
+			throw new GuarderiaException(GuarderiaException.ANIMAL_EXISTENTE);
+			// este mensaje se imprimia antes de incluir la excepcion propia
+			// System.out.println("La mascota ya esta en la guarderia.");
 		} else if (mascotas.length >= capacidad) {
-			System.out.println("No hay espacio disponible en la guarderia.");
+			throw new GuarderiaException(GuarderiaException.GUARDERIA_LLENA);
+			// este mensaje se imprimia antes de incluir la excepcion propia
+			// System.out.println("No hay espacio disponible en la guarderia.");
 		} else {
 			Mascota[] copy = Arrays.copyOf(mascotas, mascotas.length + 1);
 			copy[copy.length -1] = m;
@@ -71,7 +75,7 @@ public class Guarderia {
 		}
 	}
 	
-	public void retirarMascota(String nombre) {
+	public void retirarMascota(String nombre) throws GuarderiaException {
 		boolean encontrada = false;
 		int cont = 0;
 		while (!encontrada && cont < mascotas.length) {
@@ -96,7 +100,9 @@ public class Guarderia {
 				}
 			}
 			mascotas = aux;
-			System.out.println("Mascota retirada correctamente.");
+			throw new GuarderiaException(GuarderiaException.ANIMAL_RETIRADO);
+			// este mensaje se imprimia antes de incluir la excepcion propia
+			// System.out.println("Mascota retirada correctamente.");
 		}
 	}
 	
