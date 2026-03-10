@@ -53,12 +53,53 @@ public class Discoteca {
 
 	// Permite alquilar un disco físico, verificando que no esté ya alquilado.Asigna el disco al cliente.
 	public void alquilarDisco(String titulo, String artista, Cliente c) {
-		
+		boolean encontrado = false;
+		int cont = 0;
+		while (!encontrado && cont < discos.length) {
+			if (discos[cont].getTitulo().equalsIgnoreCase(titulo) && discos[cont].getArtista().equalsIgnoreCase(artista)) {
+				encontrado = true;
+				if (discos[cont] instanceof Fisico && ((Fisico) discos[cont]).isEstaAlquilado()) {
+					System.out.println("Error: ese disco está alquilado.");
+				} else if (discos[cont] instanceof Digital) {
+					System.out.println("Error: solo se pueden alquilar discos físicos.");
+				} else {
+					Fisico f = (Fisico) discos[cont];
+					f.setEstaAlquilado(true);
+					f.setCliente(c);
+					System.out.println("Disco alquilado correctamente a: " + c);
+				}
+			}
+			cont++;
+		}
+		if (!encontrado) {
+			System.out.println("Disco no encontrado.");
+		}
 	}
 	
 	// Permite devolver un disco físico. Verifica que el disco esté alquilado a ese cliente (por DNI)
 	public void devolverDisco(String titulo, String artista, Cliente c) {
-		
+		boolean encontrado = false;
+		int cont = 0;
+		while (!encontrado && cont < discos.length) {
+			if (discos[cont].getTitulo().equalsIgnoreCase(titulo) && discos[cont].getArtista().equalsIgnoreCase(artista)) {
+				encontrado = true;
+				if (discos[cont] instanceof Fisico) {
+					Fisico f = (Fisico) discos[cont];
+					if (!f.isEstaAlquilado()) {
+						System.out.println("El disco no esta alquilado.");
+					} else if (f.getCliente().getDni().equalsIgnoreCase(c.getDni())) {
+						f.setEstaAlquilado(false);
+						System.out.println("Disco devuelto correctamente.");
+					} else {
+					System.out.println("No se puede devolver, el cliente no coincide.");
+					}
+				}
+			}
+			cont++;
+		}
+		if (!encontrado) {
+			System.out.println("Disco no encontrado.");
+		}
 	}
 	
 	// Permite descargar un disco digital, incrementando el contador de descargas.
@@ -109,15 +150,10 @@ public class Discoteca {
 		while (!encontrado && cont < discos.length) {
 			if (discos[cont].getTitulo().equalsIgnoreCase(titulo) && discos[cont].getArtista().equalsIgnoreCase(artista)) {
 				encontrado = true;
-				boolean sePuedeEliminar = true;
-				if (discos[cont] instanceof Fisico) {
-					Fisico f = (Fisico) discos[cont];
-					if (f.isEstaAlquilado()) {
-						sePuedeEliminar = false;
-						System.out.println("No se puede eliminar el disco porque está alquilado.");
-					}
-				} 
-				if (sePuedeEliminar) {
+				// si es fisico y esta alquilado
+				if (discos[cont] instanceof Fisico && ((Fisico) discos[cont]).isEstaAlquilado()) {
+					System.out.println("No se puede eliminar el disco porque está alquilado.");
+				} else {
 					Disco[] aux = new Disco[discos.length -1];
 					int contAux = 0;
 					for (int i = 0; i < discos.length; i++) {

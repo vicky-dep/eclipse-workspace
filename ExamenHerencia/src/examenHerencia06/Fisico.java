@@ -25,6 +25,12 @@ public class Fisico extends Disco {
 		this.estaAlquilado = estaAlquilado;
 		this.cliente = cliente;
 	}
+	public Fisico(String formato, String ubicacionTienda, boolean estaAlquilado) {
+		super();
+		this.formato = formato;
+		this.ubicacionTienda = ubicacionTienda;
+		this.estaAlquilado = estaAlquilado;
+	}
 	public Fisico(String titulo, String artista, int anioLanzamiento, String id, String formato, String ubicacionTienda,
 				  boolean estaAlquilado, Cliente cliente) {
 		super(titulo, artista, anioLanzamiento, id);
@@ -33,7 +39,13 @@ public class Fisico extends Disco {
 		this.estaAlquilado = estaAlquilado;
 		this.cliente = cliente;
 	}
-	
+	public Fisico(String titulo, String artista, int anioLanzamiento, String id, String formato, String ubicacionTienda,
+			  boolean estaAlquilado) {
+		super(titulo, artista, anioLanzamiento, id);
+		this.formato = formato;
+		this.ubicacionTienda = ubicacionTienda;
+		this.estaAlquilado = estaAlquilado;
+	}
 	public String getFormato() {
 		return formato;
 	}

@@ -22,6 +22,13 @@ public class Digital extends Disco {
 		this.calidadArchivo = calidadArchivo;
 		this.numDescargas = numDescargas;
 	}
+	public Digital(String titulo, String artista, int anioLanzamiento, String id, String plataforma,
+			String calidadArchivo, int numDescargas) {
+		super(titulo, artista, anioLanzamiento, id);
+		this.plataforma = plataforma;
+		this.calidadArchivo = calidadArchivo;
+		this.numDescargas = numDescargas;
+	}
 	
 	public String getPlataforma() {
 		return plataforma;
