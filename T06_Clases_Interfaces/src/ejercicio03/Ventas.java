@@ -79,21 +79,52 @@ public class Ventas implements VentasInterfaz {
 		Entradas [] copy = Arrays.copyOf(entradas, entradas.length+1);
 		if (tipoEntrada.equalsIgnoreCase("gradas")) {
 			Gradas g = new Gradas();
-		
+			copy[copy.length-1] = g;
+		} else if (tipoEntrada.equalsIgnoreCase("pista")) {
+			Pista p = new Pista();
+			copy[copy.length-1] = p;
 		}
-		
+		entradas = copy;
 	}
 
 	@Override
 	public boolean modificarEntrada(Entradas o, String fecha) {
-		
-		return false;
+		boolean encontrada = false;
+		boolean modificaFecha = false;
+		int cont = 0;
+		while (!encontrada && cont < entradas.length) {
+			if (entradas[cont].getId() == o.getId()) {
+				encontrada = true;
+				if (entradas[cont] instanceof Pista) {
+					Pista p = (Pista) entradas[cont];
+					p.setFecha(fecha);
+					modificaFecha = true;
+				} else if (entradas[cont] instanceof Gradas) {
+					Gradas g = (Gradas) entradas[cont];
+					g.setFecha(fecha);
+					modificaFecha = true;
+				}
+			}
+		}
+		cont++;
+		return modificaFecha;
 	}
 
 	@Override
 	public boolean modificarAsiento(Entradas o, int nuevo) {
-		
-		return false;
+		boolean encontrada = false;
+		boolean modificaAsiento = false;
+		int cont = 0;
+		while (!encontrada && cont < entradas.length) {
+			if (entradas[cont].getId() == o.getId() && entradas[cont] instanceof Gradas) {
+				encontrada = true;
+				Gradas g = (Gradas) entradas[cont];
+				g.setNumAsiento(nuevo);
+				modificaAsiento = true;
+			}
+		}
+		cont++;
+		return modificaAsiento;
 	}
 	
 }
