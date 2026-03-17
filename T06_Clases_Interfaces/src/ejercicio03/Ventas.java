@@ -47,7 +47,7 @@ public class Ventas implements VentasInterfaz {
 				}
 			} else if (entradas[i] instanceof Gradas) {
 				Gradas g = (Gradas) entradas[i];
-				if (g.getNombre() != null) {
+				if (g.getNombre() != null && !g.getNombre().trim().equalsIgnoreCase("") ) {
 					entradasVendidas++;
 				}
 			}
