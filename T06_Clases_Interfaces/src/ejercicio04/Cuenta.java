@@ -54,9 +54,10 @@ public class Cuenta implements ProductoInterfaz {
 				+ Arrays.toString(productos) + "]";
 	}
 
-	// Si en la cuenta hay menos de 10000€ se le puede ofrecer sólo el seguro de hogar, 
-	// si tiene entre 10000€ y 20000€ se le ofrecerá el seguro de vida y 
-	// a partir de 50000€ los fondos de inversión.
+	/* Si en la cuenta hay menos de 10000€ se le puede ofrecer sólo el seguro de hogar, 
+	   si tiene entre 10000€ y 20000€ se le ofrecerá el seguro de vida y 
+	   a partir de 50000€ los fondos de inversión. 
+	*/
 	@Override
 	public String ofrecerProductos() {
 		String productoAOfrecer = null;

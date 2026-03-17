@@ -1,14 +1,16 @@
 package ejercicio03_atributos_en_padre;
 
-public class Pista extends Entradas {
+public class Pista extends Object {
 
-	public Pista(String id, String nombre, String artista, String fecha) {
-		super(id, nombre, artista, fecha);
+	//del comprador, del artista y de la fecha del concierto.
+
+	public Pista(String id) {
+		super(id);
+		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public String toString() {
-		return "Pista [toString()=" + super.toString() + "]";
+	public Pista(String id, String nombreComprador, String artista, String fecha) {
+		super(id, nombreComprador, artista, fecha);
 	}
 
 }

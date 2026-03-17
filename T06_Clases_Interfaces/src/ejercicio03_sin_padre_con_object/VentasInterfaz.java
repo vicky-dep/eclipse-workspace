@@ -1,4 +1,4 @@
-package ejercicio03_atributos_en_padre;
+package ejercicio03_sin_padre_con_object;
 
 public interface VentasInterfaz {
 
@@ -11,5 +11,5 @@ public interface VentasInterfaz {
 	boolean modificarEntrada(Object o, String fecha);
 
 	boolean modificarAsiento(Object o, int nuevo);
-	
+
 }

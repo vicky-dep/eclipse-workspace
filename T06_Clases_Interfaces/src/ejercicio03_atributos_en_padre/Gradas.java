@@ -1,40 +1,37 @@
 package ejercicio03_atributos_en_padre;
 
-public class Gradas extends Entradas {
+public class Gradas extends Object {
 
-	private int numAsiento;
+	// número de asiento y la zona
+	// nombre del comprador, del artista y de la fecha del concierto.
+	private int asiento;
 	private String zona;
-	
-	public Gradas(String id, String nombre, String artista, String fecha, int numAsiento, String zona) {
-		super(id, nombre, artista, fecha);
-		this.numAsiento = numAsiento;
+
+	public Gradas(String id) {
+		super(id);
+	}
+	public Gradas(String id, String nombreComprador, String artista, String fecha, int asiento, String zona) {
+		super(id, nombreComprador, artista, fecha);
+		this.asiento = asiento;
 		this.zona = zona;
 	}
-
-	public Gradas(String id, String nombre, String artista, String fecha) {
-		super(id, nombre, artista, fecha);
+	
+	public int getAsiento() {
+		return asiento;
 	}
-
-	public int getNumAsiento() {
-		return numAsiento;
+	public void setAsiento(int asiento) {
+		this.asiento = asiento;
 	}
-
-	public void setNumAsiento(int numAsiento) {
-		this.numAsiento = numAsiento;
-	}
-
 	public String getZona() {
 		return zona;
 	}
-
 	public void setZona(String zona) {
 		this.zona = zona;
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + "Gradas [numAsiento=" + numAsiento + ", zona=" + zona + "]";
+		return super.toString()+ "Gradas [asiento=" + asiento + ", zona=" + zona + "]";
 	}
-	
 	
 }
