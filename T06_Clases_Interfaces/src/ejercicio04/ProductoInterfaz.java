@@ -8,6 +8,6 @@ public interface ProductoInterfaz {
 	 * ofrecerá el seguro de vida y a partir de 50000€ los fondos de inversión.
 	 */
 	
-	String ofrecerProductos();
+	String[] ofrecerProductos();
 	
 }

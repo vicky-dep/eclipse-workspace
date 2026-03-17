@@ -2,7 +2,7 @@ package ejercicio04;
 
 import java.util.Arrays;
 
-public class Cuenta implements ProductoInterfaz {
+public class Cuenta implements ProductoInterfaz, Comparable<Cuenta> {
 
 	/*
 	 * Se desea gestionar el listado de cuentas de un banco. Cada cuenta tendrá un nombre usuario, un identificador único 
@@ -59,16 +59,29 @@ public class Cuenta implements ProductoInterfaz {
 	   a partir de 50000€ los fondos de inversión. 
 	*/
 	@Override
-	public String ofrecerProductos() {
-		String productoAOfrecer = null;
+	public String[] ofrecerProductos() {
+		String[] resultado = new String[0];
 		if (saldo < 10000) {
-			productoAOfrecer = "Seguro de hogar";
+			resultado = redimensionarArray("Seguro de hogar");
 		} else if (saldo >= 10000 && saldo <= 20000) {
-			productoAOfrecer = "Seguro de vida";
+			resultado = redimensionarArray("Seguro de vida");
 		} else if (saldo > 50000) {
-			productoAOfrecer = "Fondos de inversión";
+			resultado = redimensionarArray("Fondos de inversión");
 		}
-		return productoAOfrecer;
+		return resultado;
+	}
+	
+	private String[] redimensionarArray(String producto) {
+		String[] copy = Arrays.copyOf(productos, productos.length+1);
+		copy[copy.length-1] = producto;
+		productos = copy;
+		return productos;
+	}
+	
+	// Además se necesita ordenar las cuentas por orden natural de identificador.
+	@Override
+	public int compareTo(Cuenta o) {
+		return id.compareTo(o.getId());
 	}
 	
 }
