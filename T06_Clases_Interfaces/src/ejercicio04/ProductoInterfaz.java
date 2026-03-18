@@ -1,6 +1,6 @@
 package ejercicio04;
 
-public interface ProductoInterfaz {
+public interface ProductoInterfaz { // Leticia: CuentaInterfaz
 
 	/*
 	 * Diseña una interfaz que permita saber los productos que se les puede ofrecer al cliente a partir del dinero en su cuenta. 
@@ -8,6 +8,6 @@ public interface ProductoInterfaz {
 	 * ofrecerá el seguro de vida y a partir de 50000€ los fondos de inversión.
 	 */
 	
-	String[] ofrecerProductos();
+	String[] ofrecerProductos(); // Leticia: void contratarProductos();
 	
 }

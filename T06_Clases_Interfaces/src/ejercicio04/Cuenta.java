@@ -12,8 +12,8 @@ public class Cuenta implements ProductoInterfaz, Comparable<Cuenta> {
 	
 	private String nombre;
 	private String id;
-	private long saldo;
-	private String[] productos = new String[0]; 
+	private long saldo; // Leticia ha puesto float
+	private String[] productos = new String[0]; // Leticia: new String[3]; 
 	// Los productos se almacenan en un array. Estos productos pueden ser: seguro de hogar, seguro de vida, fondos de inversión.
 	
 	public Cuenta() {
@@ -76,6 +76,33 @@ public class Cuenta implements ProductoInterfaz, Comparable<Cuenta> {
 		copy[copy.length-1] = producto;
 		productos = copy;
 		return productos;
+	}
+	
+	// este metodo viene de la interfaz propia le faltaria el override
+	public void contratarProductos() {
+		String producto = "";
+		if (saldo < 10000) {
+			producto = "Seguro hogar";
+		} else if (saldo >= 10000 && saldo <= 20000) {
+			producto = "Seguro de vida";
+		} else if (saldo > 50000) {
+			producto = "Fondos inversión";
+		}
+		if (!producto.trim().equals("")) {
+			int cont = 0;
+			boolean anadido = false;
+			while (cont < productos.length && ! anadido) {
+				if (productos[cont] == null || productos[cont].trim().equals("")) {
+					productos[cont] = producto;
+					anadido = true;
+					System.out.println("Producto añadido correctamente.");
+				}
+				cont++;
+			}
+			if (!anadido) {
+				System.out.println("Tienes todos los productos contratados, no se pueden añadir más");
+			}
+		}
 	}
 	
 	// Además se necesita ordenar las cuentas por orden natural de identificador.
