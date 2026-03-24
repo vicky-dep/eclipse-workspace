@@ -9,6 +9,10 @@ import java.util.Set;
 public class Principal {
 
 	public static void main(String[] args) {
+		/*
+		 * Extracción de Entradas: Crea un diccionario con pares de palabras inglés-español y recorre todas sus entradas 
+		 * utilizando entrySet/keySet para mostrar por pantalla cada pareja en el formato "Clave: Valor".
+		 */
 		
 		HashMap<String, String> diccionario = new HashMap<String, String>();
 		diccionario.put("hello", "hola");

@@ -5,6 +5,10 @@ public class Gato implements Comparable<Gato> {
 	/*
 	 * Define una clase Gato con atributos nombre, color y raza; 
 	 * luego crea un ArrayList que almacene cuatro objetos de esta clase y muéstralos usando iterator.
+	 * Implementación de Comparable: Modifica la clase Gato para que implemente la interfaz Comparable<Gato> 
+	 * y añade el método compareTo necesario para permitir su ordenación.
+	 * Criterio de ordenación: Implementa la lógica en el método compareTo para que los objetos Gato de una 
+	 * lista se ordenen alfabéticamente por su nombre.
 	 */
 	
 	private String nombre;

@@ -7,6 +7,10 @@ import java.util.Set;
 public class Principal {
 
 	public static void main(String[] args) {
+		/*
+		 * Asociación Clave-Valor: Crea un HashMap donde la clave sea un código de empleado (Integer) 
+		 * y el valor sea su nombre (String). Inserta cinco entradas y recupera el nombre de un empleado específico mediante su código.
+		 */
 		
 		HashMap<Integer, String> mapa = new HashMap<Integer, String>();
 		mapa.put(2, "Luis"); // Permite rellenar un mapa con valores
