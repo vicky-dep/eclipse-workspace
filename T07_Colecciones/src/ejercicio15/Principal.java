@@ -23,9 +23,8 @@ public class Principal {
 	 * Salir
 	 */
 		
-		HashMap<String, Socio> mapaSocios = new HashMap<String, Socio>();
-
 		Scanner sc = new Scanner(System.in);
+		HashMap<String, Socio> mapaSocios = new HashMap<String, Socio>();
 		System.out.println("Pulse una de estas opciones (0 para salir");
 		System.out.println("1. Alta socio");
 		System.out.println("2. Baja socio");
@@ -38,7 +37,7 @@ public class Principal {
 		int opcion = sc.nextInt();
 		while (opcion > 0 && opcion <= 6) {
 			switch (opcion) {
-			case 1: {
+			case 1:
 				System.out.println("Apodo del socio");
 				String apodo = sc.next();
 				System.out.println("Nombre");
@@ -49,15 +48,14 @@ public class Principal {
 				mapaSocios.put(apodo, s);
 				System.out.println("Dado de alta correctamente");
 				break;
-			}
-			case 2: {
+			case 2:
+				// Para borrar de un mapa una entrada completa, se borra a través de la clave
 				System.out.println("Apodo del socio");
 				String apodoBaja = sc.next();
-				mapaSocios.remove(apodoBaja); // Como no se utiliza iterator...
+				mapaSocios.remove(apodoBaja); // Como no se utiliza iterator, hay que eliminar con el remove del mapa
 				System.out.println("Dado de baja correctamente");	
 				break;
-			}
-			case 3: {
+			case 3:
 				System.out.println("Apodo del socio a modificar");
 				String apodoMod = sc.next();
 				System.out.println("Nuevo nombre");
@@ -73,8 +71,7 @@ public class Principal {
 					System.out.println("No existe el socio");
 				}
 				break;
-			}
-			case 4: {
+			case 4:
 				System.out.println("Dame el apodo del socio que quieres saber su informacion");
 				String apodoListado = sc.next();
 				if (mapaSocios.containsKey(apodoListado)) {
@@ -83,10 +80,9 @@ public class Principal {
 					System.out.println("No existe socio con ese apodo");
 				}
 				break;
-			}
-			case 5: {
+			case 5:
 				System.out.println("Dime el año para listar los socios dados de alta ese año");
-				int anio = sc.nextInt();
+				int anioListado = sc.nextInt();
 				ArrayList<Socio> lista = new ArrayList<Socio>();
 				// Recorremos el mapa a traves de sus claves con el iterator
 				Set<String> claves = mapaSocios.keySet();
@@ -94,30 +90,43 @@ public class Principal {
 				while (it.hasNext()) {
 					String c = (String) it.next();
 					Socio socio = mapaSocios.get(c);
-					if (socio.getFechaIngreso() == anio) {
+					if (socio.getFechaIngreso() == anioListado) {
 						lista.add(socio);
 					}
 				}
+				System.out.println("Socios del año " + anioListado + ":" + lista);
 				break;
-			}
-			case 6: {
+			case 6:
 				System.out.println("Dime el año para listar los socios dados de alta ese año");
-				int anio = sc.nextInt();
-				ArrayList<Socio> lista = new ArrayList<Socio>();
+				int anioAnterior = sc.nextInt();
+				ArrayList<Socio> listaAnterior = new ArrayList<Socio>();
 				// Recorremos el mapa a traves de sus claves con el iterator
-				Set<String> claves = mapaSocios.keySet();
-				Iterator<String> it2 = claves.iterator();
+				Set<String> clavesAnt = mapaSocios.keySet();
+				Iterator<String> it2 = clavesAnt.iterator();
 				while (it2.hasNext()) {
 					String c = (String) it2.next();
 					Socio socio = mapaSocios.get(c);
-					if (socio.getFechaIngreso() < anio) {
-						lista.add(socio);
+					if (socio.getFechaIngreso() < anioAnterior) {
+						listaAnterior.add(socio);
 					}
 				}
+				System.out.println("Socios del año " + anioAnterior + ":" + listaAnterior);
 				break;
-			}			
+			default:
+				break;
 			}
+			System.out.println("Pulse una de estas opciones (0 para salir");
+			System.out.println("1. Alta socio");
+			System.out.println("2. Baja socio");
+			System.out.println("3. Modificación socio");
+			System.out.println("4. Listar Socio por apodo");
+			System.out.println("5. Listar Socio por antiguedad");
+			System.out.println("6. Listar Socio anterior a un año");
+			System.out.println("0. Salir");
+			
+			opcion = sc.nextInt();
 		}
+		
 	}
 	
 }
