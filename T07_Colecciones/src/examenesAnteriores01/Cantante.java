@@ -17,15 +17,12 @@ public class Cantante {
 	public String getNombre() {
 		return nombre;
 	}
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
 	public String getTituloAlbum() {
 		return tituloAlbum;
 	}
-
 	public void setTituloAlbum(String tituloAlbum) {
 		this.tituloAlbum = tituloAlbum;
 	}

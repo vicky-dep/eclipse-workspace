@@ -66,7 +66,7 @@ public class Principal {
 					socio.setNombre(nuevoNombre);
 					// Despues de cualquier cambio hay que volver a hacer put
 					mapaSocios.put(apodoMod, socio);
-					System.out.println("Socio modificaco correctamente");
+					System.out.println("Socio modificado correctamente");
 				} else {
 					System.out.println("No existe el socio");
 				}
