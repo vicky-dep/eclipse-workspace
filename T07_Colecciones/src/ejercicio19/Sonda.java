@@ -37,7 +37,7 @@ public class Sonda extends Nave {
 	public double calcularConsumoEnergia() {
 		double consumo = 500;
 		if (numeroSensores > 5) {
-			consumo*=1.15;
+			consumo *= 1.15;
 		}
 		return consumo;
 	}
