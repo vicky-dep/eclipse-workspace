@@ -11,7 +11,7 @@ public interface GestionAgenciaInterfaz {
 	 * Set/List<String> obtenerCodigosUnicos(): Devuelve un conjunto con todos los códigos de las naves registradas.
 	 */
 	
-	List<Nave> filtrarPorTipo(String  tipo);
+	List<Nave> filtrarPorTipo(String tipo);
 	Set<String> obtenerCodigosUnicos();
 	
 }

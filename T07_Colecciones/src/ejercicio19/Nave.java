@@ -1,5 +1,7 @@
 package ejercicio19;
 
+import java.util.Objects;
+
 public abstract class Nave implements Comparable<Nave> {
 
 	/*
@@ -64,6 +66,23 @@ public abstract class Nave implements Comparable<Nave> {
 	public String toString() {
 		return "Nave [codigoNave=" + codigoNave + ", nombre=" + nombre + ", anioFabricacion=" + anioFabricacion
 				+ ", enMision=" + enMision + "]";
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(codigoNave);
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Nave other = (Nave) obj;
+		return Objects.equals(codigoNave, other.codigoNave);
 	}
 	
 	public void asignarAMision(boolean estado) {

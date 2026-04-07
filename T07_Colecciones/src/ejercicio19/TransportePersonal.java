@@ -38,8 +38,11 @@ public class TransportePersonal extends Nave {
 
 	@Override
 	public double calcularConsumoEnergia() {
-		
-		return 0;
+		double consumo = 50 * numeroPasajeros;
+		if (numeroPasajeros > 10) {
+			consumo *= 0.95;
+		}
+		return consumo;
 	}
 	
 }
