@@ -23,7 +23,9 @@ public class AgenciaEspacial implements GestionAgenciaInterfaz {
 	 * Para esto deberás crear un Comparator externo.
 	 */
 	
-	private ArrayList<Nave> naves = new ArrayList<>();
+	private ArrayList<Nave> naves = new ArrayList<Nave>();
+	// esto seria para la otra forma del metodo registrar:
+	// private HashSet<Nave> navesSet = new HashSet<Nave>();
 	
 	public AgenciaEspacial() {
 		super();
@@ -49,6 +51,37 @@ public class AgenciaEspacial implements GestionAgenciaInterfaz {
         }
 	}
 	
+	/*Otra forma, en caso de haber dejado el equals con todo... habria que iterar y verificar que no hayan codigos repetidos
+	
+	public void registrarNave(Nave n) {
+		boolean encontrado = false;
+		Iterator<Nave> it = naves.iterator();
+		while (it.hasNext() && !encontrado) {
+			Nave nave = (Nave) it.next();
+			if (nave.getCodigoNave().equalsIgnoreCase(n.getCodigoNave())) {
+				encontrado = true;
+				System.out.println("No se puede añadir la nave, ya existe");
+			}
+		}
+		if (!encontrado) {
+			naves.add(n);
+			System.out.println("Nave añadida");
+		}
+	}
+	*/
+	
+	/* Si hicieramos un conjunto tambien se resuelve el problema de repetidos
+	
+	public void registrarNave(Nave n) {
+		// Con hashset
+		if (navesSet.add(n)) {
+			System.out.println();
+		} else {
+			System.out.println();
+		}
+	}
+	*/
+	
 	public void retirarNave(String codigoNave) {
 		boolean encontrada = false;
 		Iterator<Nave> it = naves.iterator();
@@ -70,7 +103,7 @@ public class AgenciaEspacial implements GestionAgenciaInterfaz {
         Collections.sort(copia, new ComparadorConsumoNave());
         return copia;
 	}
-
+	/*
 	@Override
 	public List<Nave> filtrarPorTipo(String tipo) {
         List<Nave> listaFiltrada = new ArrayList<>();
@@ -85,6 +118,26 @@ public class AgenciaEspacial implements GestionAgenciaInterfaz {
         }
         return listaFiltrada;
     }
+	*/
+	@Override
+	public List<Nave> filtrarPorTipo(String tipo) {
+		List<Nave> resultado = new ArrayList<Nave>();
+		Iterator<Nave> it = naves.iterator();
+		while (it.hasNext()) {
+			Nave nave = (Nave) it.next();
+			if (tipo.equalsIgnoreCase("Carguero") && nave instanceof Carguero) {
+				resultado.add(nave);
+			}
+			if (tipo.equalsIgnoreCase("Sonda") && nave instanceof Sonda) {
+				resultado.add(nave);
+			}
+			if (tipo.equalsIgnoreCase("TransportePesonal") && nave instanceof TransportePersonal) {
+				resultado.add(nave);
+			}
+		}
+		return resultado;
+	}
+	
 	/*
 	 * Si fuese solo filtrar por tipoSonda:
 	 * 
@@ -98,14 +151,59 @@ public class AgenciaEspacial implements GestionAgenciaInterfaz {
         return listaSondas;
     }
 	*/
+	/*
+		@Override
+	public List<Nave> filtrarPorTipo(String tipo) {
+		List<Nave> resultado = new ArrayList<Nave>();
+		Iterator<Nave> it = naves.iterator();
+		while (it.hasNext()) {
+			Nave nave = (Nave) it.next();
+			if (tipo.equalsIgnoreCase("Carguero") && nave instanceof Carguero) {
+				resultado.add(nave);
+			}
+			if (tipo.equalsIgnoreCase("Sonda") && nave instanceof Sonda) {
+				resultado.add(nave);
+			}
+			if (tipo.equalsIgnoreCase("TransportePesonal") && nave instanceof TransportePersonal) {
+				resultado.add(nave);
+			}
+
+		}
+		return resultado;
+	}
+	
+		public List<Nave> filtrarPorTipoSonda() {
+		return filtrarPorTipo("Sonda");
+	}
+
+	public List<Nave> obtenerNavesOrdenadasPorConsumo() {
+		ConsumoComparator c = new ConsumoComparator();
+		Collections.sort(naves, c);
+		return naves;
+	}
+	 */
 
 	@Override
 	public Set<String> obtenerCodigosUnicos() {
-        Set<String> codigos = new HashSet<>();
+        Set<String> codigos = new HashSet<String>();
         for (int i = 0; i < naves.size(); i++) {
             codigos.add(naves.get(i).getCodigoNave());
         }
         return codigos;
 	}
+	
+	// Leticia utiliza while en vez de for
+	/*
+	 * 	@Override
+	public Set<String> obtenerCodigosUnicos() {
+		Set<String> resultado = new HashSet<String>();
+		Iterator<Nave> it = naves.iterator();
+		while (it.hasNext()) {
+			Nave nave = (Nave) it.next();
+			resultado.add(nave.getCodigoNave());
+		}
+		return resultado;
+	}
+	 */
 	
 }

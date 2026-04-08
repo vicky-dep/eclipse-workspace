@@ -100,6 +100,7 @@ public abstract class Nave implements Comparable<Nave> {
 	
 	public abstract double calcularConsumoEnergia();
 	
+	// al ser abstracta la clase, el Comparable no iria aqui...
 	@Override
 	public int compareTo(Nave n) {
 		return this.anioFabricacion - n.anioFabricacion;

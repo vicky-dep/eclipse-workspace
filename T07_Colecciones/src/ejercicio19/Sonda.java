@@ -34,6 +34,11 @@ public class Sonda extends Nave {
 	}
 	
 	@Override
+	public int compareTo(Nave n) {
+		return super.getAnioFabricacion() - n.getAnioFabricacion();
+	}
+	
+	@Override
 	public double calcularConsumoEnergia() {
 		double consumo = 500;
 		if (numeroSensores > 5) {

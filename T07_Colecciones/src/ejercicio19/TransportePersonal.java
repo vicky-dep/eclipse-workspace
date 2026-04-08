@@ -35,6 +35,11 @@ public class TransportePersonal extends Nave {
 	public String toString() {
 		return super.toString() + "TransportePersonal [numeroPasajeros=" + numeroPasajeros + "]";
 	}
+	
+	@Override
+	public int compareTo(Nave n) {
+		return super.getAnioFabricacion() - n.getAnioFabricacion();
+	}
 
 	@Override
 	public double calcularConsumoEnergia() {

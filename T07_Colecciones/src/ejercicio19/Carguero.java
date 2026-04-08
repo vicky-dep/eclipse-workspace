@@ -33,6 +33,11 @@ public class Carguero extends Nave {
 	public String toString() {
 		return super.toString() + "Carguero [capacidadCarga=" + capacidadCarga + "]";
 	}
+	
+	@Override
+	public int compareTo(Nave n) {
+		return super.getAnioFabricacion() - n.getAnioFabricacion();
+	}
 
 	@Override
 	public double calcularConsumoEnergia() {
