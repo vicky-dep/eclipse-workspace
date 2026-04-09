@@ -2,58 +2,121 @@ package examenesAnteriores02;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
-public class GestionBibliotecaMusical {
+public class GestionBibliotecaMusical implements GestionBibliotecaMusicalInterfaz {
+
+	Map<String, Album[]> biblioteca = new HashMap<String, Album[]>();
 	
-	public static void main(String[] args) {
-
-		/*
-		 * Ejercicio1.(Mapa e interfaces propias de Java).Se requiere implementar un sistema de gestión de una biblioteca musical, 
-		 * donde cada género musical tenga un conjunto de álbumes almacenados en un array[ ].Para ello, se usará un Mapa donde:
-		 * Clave (String): Representa el género musical (Ej: "Rock", "Pop", "Jazz").
-		 * Valor ([]): Un array que almacena los álbumes de ese género.El array es dinámico, lo que significa que se tiene que ir redimensionando.
-		 */
-
-		HashMap<String, Album[]> mapaAlbumes = new HashMap<String, Album[]>();
-		
-		agregarAlbum("Rock", new Album("titulo1", "artista1", "cod1", 2010), mapaAlbumes);
-		agregarAlbum("Pop", new Album("titulo2", "artista2", "cod2", 2000), mapaAlbumes);
-		agregarAlbum("Pop", new Album("titulo3", "artista3", "cod3", 1990), mapaAlbumes);
-		agregarAlbum("Rock", new Album("titulo4", "artista4", "cod4", 1981), mapaAlbumes);
-		agregarAlbum("Rock", new Album("titulo5", "artista5", "cod5", 2019), mapaAlbumes);
-		agregarAlbum("Jazz", new Album("titulo6", "artista6", "cod6", 2016), mapaAlbumes);
-		
-		System.out.println(Arrays.toString(mapaAlbumes.get("Rock")));
-		System.out.println(Arrays.toString(mapaAlbumes.get("Pop")));
-		System.out.println(Arrays.toString(mapaAlbumes.get("Jazz")));
-		System.out.println(Arrays.toString(mapaAlbumes.get("Otro")));
-	
+	public Map<String, Album[]> getBiblioteca() {
+		return biblioteca;
 	}
-		
-		public static void agregarAlbum(String genero, Album album, HashMap<String, Album[]> mapaAlbumes) {
-			if (mapaAlbumes.containsKey(genero)) {
-				Album[] albumes = mapaAlbumes.get(genero);
-				Album[] aux = Arrays.copyOf(albumes, albumes.length+1);
+	public void setBiblioteca(Map<String, Album[]> biblioteca) {
+		this.biblioteca = biblioteca;
+	}
+
+	@Override
+	public void agregarAlbum(String genero, Album album) {
+		if(!biblioteca.containsKey(genero)) {
+			Album[] nuevoArray = {album};
+			biblioteca.put(genero, nuevoArray);
+			System.out.println("Nuevo genero agregado a la biblioteca");
+		} else {
+			Album[] albums = biblioteca.get(genero); // get nos da el valor asociado a la clave
+			// Miramos si el album existe
+			boolean encontrado = false;
+			int cont = 0;
+			while(!encontrado && cont<albums.length) {
+				if(albums[cont].getCodigoAlbum().equalsIgnoreCase(album.getCodigoAlbum())) {
+					encontrado = true;
+					System.out.println("No se puede añadir el album, ya exisste");
+				}
+				cont++;
+			}
+			if(!encontrado) {
+				// redimensionamos el array y se lo asignamos al mapa con el put
+				Album[] aux = Arrays.copyOf(albums, albums.length+1);
 				aux[aux.length-1] = album;
-				mapaAlbumes.put(genero, aux);
-				
-				/* sin redimensionar:
-				int cont = 0;
-				boolean encontrado = false;
-				Album[] albumes = mapaAlbumes.get(genero);
-				while (cont < albumes.length && !encontrado) {
-					if (albumes[cont] == null) {
-						albumes[cont] = album;
-						mapaAlbumes.put(genero, albumes);
-						encontrado = true;
-					}
-					cont++;
-				}*/
-				
-			} else {
-				Album [] a = {album};
-				mapaAlbumes.put(genero, a);
+				biblioteca.put(genero, aux);
+				System.out.println("Nuevo album añadido");
 			}
 		}
-		
+	}
+
+	@Override
+	public void eliminarAlbum(String genero, String codigoAlbum) {
+		if(biblioteca.containsKey(genero)) {
+			// buscamos el album para eliminarlo
+			Album[] albums = biblioteca.get(genero);
+			// buscamos el codigo en el array para eliminarlo
+			boolean encontrado = false;
+			int cont = 0;
+			while(!encontrado && cont<albums.length) {
+				if(albums[cont].getCodigoAlbum().equalsIgnoreCase(codigoAlbum)) {
+					encontrado = true;
+					// eliminamos
+					Album[] aux = new Album[albums.length-1];
+					int j = 0;
+					for (int i = 0; i < albums.length; i++) {
+						if(i!=cont) {
+							aux[j] = albums[i];
+							j++;
+						}
+					}
+					if(aux.length > 0) {
+						biblioteca.put(genero, aux);						
+					} else {
+						biblioteca.remove(genero); // se puede utilizar ya que no estamos utilizando el iterator
+					}
+				}
+				cont++;
+			}
+		} else {
+			System.out.println("El genero no existe, no se puede eliminar eel album");
+		}
+	}
+
+	@Override
+	public void actualizarAlbum(String genero, String codigoAlbum, String nuevoTitulo) {
+		if(biblioteca.containsKey(genero)) {
+			Album[] albums = biblioteca.get(genero);
+			boolean encontrado = false;
+			int cont = 0;
+			while(!encontrado && cont<albums.length) {
+				if(albums[cont].getCodigoAlbum().equals(codigoAlbum)) {
+					encontrado = true;
+					albums[cont].setTitulo(nuevoTitulo);
+					biblioteca.put(genero, albums); // con esto nos aseguramos que el cambios va si o si al mapa
+					System.out.println("Titulo cambiado correctamente");
+				}
+				cont++;
+			}
+		}	
+	}
+
+	@Override
+	public void listarAlbumes(String genero) {
+		if(biblioteca.containsKey(genero)) {
+			Album[] albums = biblioteca.get(genero);
+			System.out.println(Arrays.toString(albums));
+		}
+	}
+
+	@Override
+	public Album buscarAlbum(String genero, String codigoAlbum) {
+		if(biblioteca.containsKey(genero)) {
+			Album[] albums = biblioteca.get(genero);
+			boolean encontrado = false;
+			int cont = 0;
+			while(!encontrado && cont<albums.length) {
+				if(albums[cont].getCodigoAlbum().equals(codigoAlbum)) {
+					encontrado = true;
+					return albums[cont];
+				}
+				cont++;
+			}
+		}
+		return null;
+	}
+
 }
