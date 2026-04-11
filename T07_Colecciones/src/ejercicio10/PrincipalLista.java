@@ -63,7 +63,7 @@ public class PrincipalLista {
 				mapaGatos.put(raza, nuevaLista); // Creamos una nueva entrada en el mapa con la nueva raza y el listado de gatos
 			}
 		}
-		
+		System.out.println(mapaGatos);
 	}
 
 }

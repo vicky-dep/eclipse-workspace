@@ -31,7 +31,6 @@ public class Principal {
 		System.out.println("Sin ordenar:");
 		System.out.println(Arrays.toString(mapaAlumnos.get("Matematicas")));
 		System.out.println(Arrays.toString(mapaAlumnos.get("Lengua")));
-		System.out.println(mapaAlumnos);
 		
 		ordenarMapa(mapaAlumnos);
 		System.out.println("Ordenado:");
@@ -42,7 +41,7 @@ public class Principal {
 
 	private static void ordenarMapa(HashMap<String, Alumno[]> mapaAlumnos) {
 		Set<String> claves = mapaAlumnos.keySet();
-		// Con el iterator recorreremos por las clases el mapa
+		// Con el iterator recorreremos por las claves el mapa
 		// obtenemos el array asociado a cada clave
 		// Ordenamos y ponemos de nuevo a esa clave el array ordenado(...)
 		

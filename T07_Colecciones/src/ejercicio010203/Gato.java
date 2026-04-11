@@ -25,6 +25,12 @@ public class Gato implements Comparable<Gato> {
 		this.raza = raza;
 	}
 	
+	public Gato(String nombre, String raza) {
+		super();
+		this.nombre = nombre;
+		this.raza = raza;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}

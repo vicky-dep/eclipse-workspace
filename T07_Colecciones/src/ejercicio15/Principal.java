@@ -97,7 +97,7 @@ public class Principal {
 				System.out.println("Socios del año " + anioListado + ":" + lista);
 				break;
 			case 6:
-				System.out.println("Dime el año para listar los socios dados de alta ese año");
+				System.out.println("Dime el año para listar los socios dados de alta antes de ese año");
 				int anioAnterior = sc.nextInt();
 				ArrayList<Socio> listaAnterior = new ArrayList<Socio>();
 				// Recorremos el mapa a traves de sus claves con el iterator
