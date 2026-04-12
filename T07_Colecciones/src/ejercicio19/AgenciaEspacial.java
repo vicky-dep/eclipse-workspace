@@ -43,7 +43,7 @@ public class AgenciaEspacial implements GestionAgenciaInterfaz {
 	}
 	
 	public void registrarNave(Nave n) {
-        if (!naves.contains(n)) {
+        if (!naves.contains(n)) { // esto se puede hacer gracias a la implementacion de equals y hashcode de nave
             naves.add(n);
             System.out.println("Nave registrada correctamente.");
         } else {

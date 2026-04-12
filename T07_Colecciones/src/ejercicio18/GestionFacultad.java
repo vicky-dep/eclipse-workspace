@@ -172,7 +172,7 @@ public class GestionFacultad implements GestionFacultadInterfaz {
 			// Damos de baja al profesor en la asignatura actual
 			darDeBajaProfesor(asignatura, idEmpleado);
 			// Lo asinamos a la nueva especialidad
-			asignarProfesor(asignatura, p);
+			asignarProfesor(nuevaEspecialidad, p);
 		} else {
 			System.out.println("No existe ese profesor asociado a la asignatura");
 		}
@@ -191,7 +191,7 @@ public class GestionFacultad implements GestionFacultadInterfaz {
 			Profesor[] profesores = facultad.get(asignatura);
 			if (porNombre) {
 				Arrays.sort(profesores);
-				System.out.println("Ordenador por nombres: " + Arrays.toString(profesores));
+				System.out.println("Ordenados por nombres: " + Arrays.toString(profesores));
 			} else {
 				CompararPorId c = new CompararPorId();
 				Arrays.sort(profesores, c);

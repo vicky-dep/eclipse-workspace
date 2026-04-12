@@ -29,7 +29,7 @@ public class GestionBibliotecaMusical implements GestionBibliotecaMusicalInterfa
 			while(!encontrado && cont<albums.length) {
 				if(albums[cont].getCodigoAlbum().equalsIgnoreCase(album.getCodigoAlbum())) {
 					encontrado = true;
-					System.out.println("No se puede añadir el album, ya exisste");
+					System.out.println("No se puede añadir el album, ya existe");
 				}
 				cont++;
 			}
@@ -86,7 +86,7 @@ public class GestionBibliotecaMusical implements GestionBibliotecaMusicalInterfa
 				if(albums[cont].getCodigoAlbum().equals(codigoAlbum)) {
 					encontrado = true;
 					albums[cont].setTitulo(nuevoTitulo);
-					biblioteca.put(genero, albums); // con esto nos aseguramos que el cambios va si o si al mapa
+					biblioteca.put(genero, albums); // con esto nos aseguramos que el cambio va si o si al mapa
 					System.out.println("Titulo cambiado correctamente");
 				}
 				cont++;
