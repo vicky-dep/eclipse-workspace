@@ -23,7 +23,7 @@ public class Principal2ConObjetos {
 		
 		ArrayList<Ciudad> ciudades2 = new ArrayList<Ciudad>();
 		ciudades2.add(c4);
-		ciudades2.add(c2);
+		ciudades2.add(c4);
 		
 		ArrayList<Ciudad> ciudades3 = new ArrayList<Ciudad>();
 		ciudades3.add(c4);
@@ -33,7 +33,7 @@ public class Principal2ConObjetos {
 		
 		ArrayList<Ciudad> ciudades4 = new ArrayList<Ciudad>();
 		ciudades4.add(c4);
-		ciudades4.add(c1);
+		ciudades4.add(c1); 
 		ciudades4.add(c1);
 		ciudades4.add(c2);
 		
@@ -58,6 +58,9 @@ public class Principal2ConObjetos {
                 if (ciudad.getNombre().equalsIgnoreCase(ciudadAEliminar)) {
                     it2.remove();
                 }
+            }
+            if (listaCiudades.isEmpty()) {
+            	it1.remove();
             }
         }
 

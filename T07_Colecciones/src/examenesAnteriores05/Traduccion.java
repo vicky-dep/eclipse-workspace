@@ -1,0 +1,32 @@
+package examenesAnteriores05;
+
+public class Traduccion {
+
+	private String palabra;
+	private String idioma;
+
+	public Traduccion(String palabra, String idioma) {
+		super();
+		this.palabra = palabra;
+		this.idioma = idioma;
+	}
+
+	public String getPalabra() {
+		return palabra;
+	}
+	public void setPalabra(String palabra) {
+		this.palabra = palabra;
+	}
+	public String getIdioma() {
+		return idioma;
+	}
+	public void setIdioma(String idioma) {
+		this.idioma = idioma;
+	}
+
+	@Override
+	public String toString() {
+		return "Traduccion [palabra=" + palabra + ", idioma=" + idioma + "]";
+	}
+
+}
