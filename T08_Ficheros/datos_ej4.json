@@ -1,0 +1,15 @@
+{
+	"nombre":"Fernando",
+	"apellidos":"García González",
+	"edad":20,
+	"asignaturas":[
+	{
+		"id":1,
+		"nombre":"Programacion"
+	},
+	{
+		"id":2,
+		"nombre":"Base de Datos"
+	}
+	]
+}
