@@ -1,0 +1,3 @@
+Nombre    Estatura
+Juan Pedro Pérez Gómez 1.8
+Ana Ruiz del Val 1.75
