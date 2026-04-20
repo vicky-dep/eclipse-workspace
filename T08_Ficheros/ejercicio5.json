@@ -1,0 +1,17 @@
+{
+	"deportistas"	:[
+		{
+			"nombre":"Juan Pedro Pérez Gómez",
+			"edad":25,
+			"peso":70.5,
+			"estatura":1.80
+			
+		},
+		{
+			"nombre":"Ana Ruíz del Val",
+			"edad":23,
+			"peso":60,
+			"estatura":1.75
+		}
+		]
+}
