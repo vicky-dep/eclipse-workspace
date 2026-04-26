@@ -1,0 +1,9 @@
+perro
+gato
+camiseta
+telefono
+guante
+ordenador
+casa
+coche
+libreta
