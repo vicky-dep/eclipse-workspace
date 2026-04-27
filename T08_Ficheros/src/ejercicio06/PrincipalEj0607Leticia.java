@@ -112,7 +112,6 @@ public class PrincipalEj0607Leticia {
 				linea = br.readLine();
 			}
 			System.out.println("Fin de lectura/escritura ficheros");
-			
 		} catch (IOException e) {
 			System.out.println("Error al crear el fichero");
 			e.printStackTrace();
@@ -130,7 +129,5 @@ public class PrincipalEj0607Leticia {
 				e.printStackTrace();
 			}
 		}
-
 	}
-
 }

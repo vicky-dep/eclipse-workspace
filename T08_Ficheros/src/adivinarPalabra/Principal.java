@@ -14,6 +14,15 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
+		/*
+		 * Dado un fichero con una palabra por línea, se necesita leer ese fichero para extraer una palabra al azar, 
+		 * se creará un número aleatorio entre 1 y el número de líneas.
+		 * Se mostrará al usuario el número de letras que tiene. El usuario irá introduciendo caracteres hasta adivinar la palabra. 
+		 * Si comete 5 errores se terminará el juego.Por cada letra acertada se sumarán 5 puntos y por cada fallo se restarán 2 puntos. 
+		 * Si adivina la palabra se guardarán esos puntos sino será una partida cuya puntuación es 0
+		 * Al finalizar el juego, se escribirá en un fichero partida.json el nombre del jugador y los puntos obtenidos.
+		 */
+		
 		BufferedReader br = null;
 		BufferedWriter bw = null;
 		Scanner sc = new Scanner(System.in);
