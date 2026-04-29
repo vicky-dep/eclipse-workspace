@@ -1,0 +1,15 @@
+{
+  "nombreConcurso": "La Ruleta de Verano",
+  "listaPaneles": [
+    {
+      "frase": "LAGUERRADELASGALAXIAS",
+      "pista": "CINE",
+      "puntuacionBase": 100
+    },
+    {
+      "frase": "AQUIENMADRUGADIOSLEAYUDA",
+      "pista": "REFRAN",
+      "puntuacionBase": 50
+    }
+  ]
+}

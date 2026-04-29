@@ -1,0 +1,16 @@
+{
+  "misiones": [
+    {
+      "nombreMision": "Operación Alpha",
+      "palabraClave": "FIREWALL",
+      "nivelDificultad": 2,
+      "recompensas": ["Acceso Root", "Token Dorado"]
+    },
+    {
+      "nombreMision": "Protocolo Omega",
+      "palabraClave": "ALGORITMO",
+      "nivelDificultad": 3,
+      "recompensas": ["Desbloqueo Nivel 5"]
+    }
+  ]
+}
