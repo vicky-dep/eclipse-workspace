@@ -84,7 +84,7 @@ public class EmpleadoDAO {
 			Connection c = conectar();
 			try {
 				Statement sentencia = c.createStatement();
-				String sql = "insert into empleados (numemp,nombre,edad,oficina,puesto,contrato)" + "VALUES ("
+				String sql = "insert into Empleados (numemp,nombre,edad,oficina,puesto,contrato)" + "VALUES ("
 						+ empleado.getNumEmpleado() + ",'" + empleado.getNombre() + "'," + empleado.getEdad() + ","
 						+ empleado.getOficina() + ",'" + empleado.getPuesto() + "'," + empleado.getContrato() + "')";
 				int resultado = sentencia.executeUpdate(sql);
@@ -109,7 +109,7 @@ public class EmpleadoDAO {
 			Connection c = conectar();
 			try {
 				Statement sentencia = c.createStatement();
-				String sql = "Select numemp,nombre,edad,oficina,puesto,contrato from empleados where " + " numEmpleado="
+				String sql = "Select numemp,nombre,edad,oficina,puesto,contrato from Empleados where " + " numEmpleado="
 						+ numEmp;
 				// Utilizamos executeUpdate
 				ResultSet executeQuery = sentencia.executeQuery(sql);
@@ -142,7 +142,7 @@ public class EmpleadoDAO {
 			try {
 				Statement sentencia = c.createStatement();
 				// numEmpleado,nombre,edad,oficina,puesto,contrato
-				String sql = "UPDATE empleados set numemp=" + empleado.getNumEmpleado() + ",nombre='" + empleado.getNombre()
+				String sql = "UPDATE Empleados set numemp=" + empleado.getNumEmpleado() + ",nombre='" + empleado.getNombre()
 						+ "',edad=" + empleado.getEdad() + ",oficina=" + empleado.getOficina() + ",puesto='"
 						+ empleado.getPuesto() + "',contrato='" + empleado.getContrato() + "' where" + " numemp="
 						+ empleado.getNumEmpleado();
@@ -168,7 +168,7 @@ public class EmpleadoDAO {
 			Connection c = conectar();
 			try {
 				Statement sentencia = c.createStatement();
-				String sql = "Delete from empleados where numemp=" + numEmp;
+				String sql = "Delete from Empleados where numemp=" + numEmp;
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -181,7 +181,7 @@ public class EmpleadoDAO {
 		Connection c = conectar();
 		try {
 			Statement sentencia = c.createStatement();
-			String sql = "select * from empleados";
+			String sql = "select * from Empleados";
 			ResultSet rs = sentencia.executeQuery(sql);// Se usa executeQuery porque devuelve datos
 			if (rs != null) {
 				while (rs.next()) {
@@ -209,7 +209,7 @@ public class EmpleadoDAO {
 		Connection c = conectar();
 		try {
 			Statement sentencia = c.createStatement();
-			String sql = "select * from empleados where edad>="+edadMinima+ " and edad<="+edadMaxima;
+			String sql = " select * from Empleados where edad>="+edadMinima+ " and edad<="+edadMaxima;
 			ResultSet rs = sentencia.executeQuery(sql);// Se usa executeQuery porque devuelve datos
 			if (rs != null) {
 				while (rs.next()) {
@@ -230,38 +230,35 @@ public class EmpleadoDAO {
 		return empleados;
 	}
 	
+	// EJERCICIO 7
 	public static void updateCambiarOficina(int ofVieja, int ofNueva) {
 		Connection c = conectar();
 		try {
 			Statement sentencia = c.createStatement();
-			// numEmpleado,nombre,edad,oficina,puesto,contrato
-			String sql = "UPDATE empleados set oficina=" + ofNueva + " where oficina=" + ofVieja;
+			String sql = " UPDATE Empleados set oficina= " + ofNueva + " where oficina= " + ofVieja;
 			int executeUpdate = sentencia.executeUpdate(sql);
 			if (executeUpdate > 0) {
 				System.out.println("empleado actualizado correctamente");
 			}
-
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				c.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 	}
-	
+
+	// EJERCICIO 7
 	public List<Empleado> empleadosPorOficina(int numOficina) {
 		List<Empleado> empleados = new ArrayList<Empleado>();
-		
 		Connection c = conectar();
 		try {
 			Statement sentencia = c.createStatement();
-			String sql = "select * from empleados where oficina="+numOficina;
-			ResultSet rs = sentencia.executeQuery(sql);// Se usa executeQuery porque devuelve datos
+			String sql = " select * from Empleados where oficina= "+numOficina;
+			ResultSet rs = sentencia.executeQuery(sql);
 			if (rs != null) {
 				while (rs.next()) {
 					Empleado e = new Empleado();
@@ -275,7 +272,6 @@ public class EmpleadoDAO {
 				}
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return empleados;

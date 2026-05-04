@@ -44,19 +44,40 @@ public class Principal {
 		System.out.println(empleadosPorEdad);
 		 */
 		
-		// Prueba Ejercicio 7:
+		// ---- Prueba Ejercicio 7: ----
+		
 		System.out.println("Introduce la oficina vieja");
 		int ofVieja = sc.nextInt();
+		
 		System.out.println("Introduce la oficina nueva");
 		int ofNueva = sc.nextInt();
 		
+		// imprimo antes de modificar
 		System.out.println(eDao.empleadosPorOficina(ofVieja));
-		
+		// modifico
 		eDao.updateCambiarOficina(ofVieja, ofNueva);
-		
+		// imprimo despues de modificar
 		System.out.println(eDao.empleadosPorOficina(ofNueva));
 		
-
+		// ---- Prueba Ejercicio 9: ----
+		System.out.println("Introduce la superficie");
+		int sup = sc.nextInt();
+		
+		System.out.println(oDao.oficinasPorSuperficie(sup));
+		
+		// ---- Prueba Ejercicio 10: ----
+		System.out.println("Introduce el número de oficina");
+		int ofi = sc.nextInt();
+		
+		System.out.println("Introduce la nueva ciudad");
+		String ciudad = sc.next();
+		
+		System.out.println("Introduce el incremento de ventas");
+		Float inc = sc.nextFloat();
+		
+		oDao.modificarCiudadYVentas(ofi, ciudad, inc);
+		System.out.println(oDao.listarOficinas());
+		
 	}
 
 }

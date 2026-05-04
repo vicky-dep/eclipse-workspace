@@ -28,7 +28,7 @@ public class OficinaDAO {
 		}
 		public static void create(Oficina oficina) {
 			Connection c=conectar();
-			String sql="insert into oficinas (oficina,ciudad,superficie,ventas) "
+			String sql="insert into Oficinas (oficina,ciudad,superficie,ventas) "
 					+ " values(?,?,?,?)";
 			try {
 				PreparedStatement prepareStatement = c.prepareStatement(sql);
@@ -50,7 +50,7 @@ public class OficinaDAO {
 		public static Oficina read(int numOficina) {
 			Oficina resultado=new Oficina();
 			Connection c=conectar();
-			String sql="Select oficina,ciudad,superficie,ventas from oficinas where oficina =?";
+			String sql="Select oficina,ciudad,superficie,ventas from Oficinas where oficina =?";
 			try {
 				PreparedStatement ps = c.prepareStatement(sql);
 				ps.setInt(1, numOficina);
@@ -69,7 +69,7 @@ public class OficinaDAO {
 		}
 		public static void update(Oficina oficina) {
 			Connection c=conectar();
-			String sql= "Update oficinas set oficina=?,ciudad=?,superficie=?,ventas=? "
+			String sql= "Update Oficinas set oficina=?,ciudad=?,superficie=?,ventas=? "
 					+ "where oficina=?";
 			try {
 				PreparedStatement prepareStatement = c.prepareStatement(sql);
@@ -91,7 +91,7 @@ public class OficinaDAO {
 		}
 		public static void delete(int numOf) {
 			Connection c=conectar();
-			String sql="Delete from oficina where oficina=?";
+			String sql="Delete from Oficina where oficina=?";
 			PreparedStatement ps;
 			try {
 				ps = c.prepareStatement(sql);
@@ -115,7 +115,7 @@ public class OficinaDAO {
 			Connection c=conectar();
 			try {
 				Statement createStatement = c.createStatement();
-				String sql="Select * from oficinas";
+				String sql="Select * from Oficinas";
 				ResultSet rs = createStatement.executeQuery(sql);
 				if(rs!=null) {
 					while (rs.next()) {
@@ -135,12 +135,13 @@ public class OficinaDAO {
 			}
 			return lista;
 		}
+		
 		public List<Oficina> oficinasPorCiudad(String nombreCiudad){
 			List<Oficina> lista=new ArrayList<Oficina>();
 			Connection c=conectar();
 			try {
 				Statement createStatement = c.createStatement();
-				String sql="Select * from oficinas where ciudad='"+nombreCiudad+"'";
+				String sql="Select * from Oficinas where ciudad='"+nombreCiudad+"'";
 				ResultSet rs = createStatement.executeQuery(sql);
 				if(rs!=null) {
 					while (rs.next()) {
@@ -159,35 +160,15 @@ public class OficinaDAO {
 				e.printStackTrace();
 			}
 			return lista;
-			
 		}
 		
-		public static void updateOficina(int ofVieja, int ofNueva) {
-			Connection c=conectar();
-			String sql= " Update oficinas set oficina=? "
-					+ "where oficina=? ";
-			try {
-				PreparedStatement prepareStatement = c.prepareStatement(sql);
-				prepareStatement.setInt(1, ofNueva);
-				prepareStatement.setInt(2, ofVieja);
-				int filaActualizada = prepareStatement.executeUpdate();
-				if(filaActualizada>1) {
-					System.out.println("Oficina actualizada correctamente");
-				}else {
-					System.out.println("No se ha podido actualizar la oficina");
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
-		public List<Oficina> oficinasPorNumero(int numOficina){
+		// EJERCICIO 9
+		public List<Oficina> oficinasPorSuperficie(int superficie){
 			List<Oficina> lista=new ArrayList<Oficina>();
 			Connection c=conectar();
 			try {
 				Statement createStatement = c.createStatement();
-				String sql="Select * from oficinas where oficina='"+numOficina+"'";
+				String sql="Select * from Oficinas where superficie > '" +superficie+"'";
 				ResultSet rs = createStatement.executeQuery(sql);
 				if(rs!=null) {
 					while (rs.next()) {
@@ -202,10 +183,29 @@ public class OficinaDAO {
 					System.out.println("No existen oficinas");
 				}
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			return lista;
-			
+		}
+		
+		// EJERCICIO 10
+		public static void modificarCiudadYVentas(int oficina, String nuevaCiudad, float incrementoVentas) {
+			Connection c=conectar();
+			String sql= "Update Oficinas set ciudad=?,ventas=ventas+? "
+					+ "where oficina=?";
+			try {
+				PreparedStatement prepareStatement = c.prepareStatement(sql);
+				prepareStatement.setString(1, nuevaCiudad);
+				prepareStatement.setFloat(2, incrementoVentas);
+				prepareStatement.setInt(3, oficina);
+				int filaActualizada = prepareStatement.executeUpdate();
+				if(filaActualizada==1) {
+					System.out.println("Ciudad e incremento en ventas actualizado correctamente");
+				}else {
+					System.out.println("No se ha podido actualizar");
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 }
