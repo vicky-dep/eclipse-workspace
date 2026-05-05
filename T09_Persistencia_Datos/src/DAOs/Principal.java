@@ -45,7 +45,7 @@ public class Principal {
 		 */
 		
 		// ---- Prueba Ejercicio 7: ----
-		
+		/*
 		System.out.println("Introduce la oficina vieja");
 		int ofVieja = sc.nextInt();
 		
@@ -58,7 +58,7 @@ public class Principal {
 		eDao.updateCambiarOficina(ofVieja, ofNueva);
 		// imprimo despues de modificar
 		System.out.println(eDao.empleadosPorOficina(ofNueva));
-		
+		*/
 		// ---- Prueba Ejercicio 9: ----
 		System.out.println("Introduce la superficie");
 		int sup = sc.nextInt();

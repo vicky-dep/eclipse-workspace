@@ -168,7 +168,7 @@ public class OficinaDAO {
 			Connection c=conectar();
 			try {
 				Statement createStatement = c.createStatement();
-				String sql="Select * from Oficinas where superficie > '" +superficie+"'";
+				String sql="Select * from Oficinas where superficie > " +superficie;
 				ResultSet rs = createStatement.executeQuery(sql);
 				if(rs!=null) {
 					while (rs.next()) {
